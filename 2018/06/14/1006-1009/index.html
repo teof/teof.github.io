@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>1006-1009 | teof的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="6.【编程题】部分A+B (15)题目描述 正整数A的“DA（为1位整数）部分”定义为由A中所有DA组成的新整数PA。例如：给定A = 3862767，DA = 6，则A的“6部分”PA是66，因为A中有2个6。  现给定A、DA、B、DB，请编写程序计算PA + PB。 输入描述: 输入在一行中依次给出A、DA、B、DB，中间以空格分隔，其中0 &amp;lt; A, B &amp;lt; 1010。 输出描述">
+<meta name="keywords" content="erlang,html5,开发者,程序猿,编程,代码,开源">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1006-1009">
+<meta property="og:url" content="http://yoursite.com/2018/06/14/1006-1009/index.html">
+<meta property="og:site_name" content="teof的博客">
+<meta property="og:description" content="6.【编程题】部分A+B (15)题目描述 正整数A的“DA（为1位整数）部分”定义为由A中所有DA组成的新整数PA。例如：给定A = 3862767，DA = 6，则A的“6部分”PA是66，因为A中有2个6。  现给定A、DA、B、DB，请编写程序计算PA + PB。 输入描述: 输入在一行中依次给出A、DA、B、DB，中间以空格分隔，其中0 &amp;lt; A, B &amp;lt; 1010。 输出描述">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-16T16:06:02.025Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1006-1009">
+<meta name="twitter:description" content="6.【编程题】部分A+B (15)题目描述 正整数A的“DA（为1位整数）部分”定义为由A中所有DA组成的新整数PA。例如：给定A = 3862767，DA = 6，则A的“6部分”PA是66，因为A中有2个6。  现给定A、DA、B、DB，请编写程序计算PA + PB。 输入描述: 输入在一行中依次给出A、DA、B、DB，中间以空格分隔，其中0 &amp;lt; A, B &amp;lt; 1010。 输出描述">
+  
+    <link rel="alternate" href="/atom.xml" title="teof的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">teof的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不想继续废柴</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-1006-1009" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/14/1006-1009/" class="article-date">
+  <time datetime="2018-06-14T12:25:22.000Z" itemprop="datePublished">2018-06-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js刷题/">js刷题</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      1006-1009
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="6-【编程题】部分A-B-15"><a href="#6-【编程题】部分A-B-15" class="headerlink" title="6.【编程题】部分A+B (15)"></a><strong>6.【编程题】部分A+B (15)</strong></h3><p>题目描述</p>
+<pre><code>正整数A的“DA（为1位整数）部分”定义为由A中所有DA组成的新整数PA。例如：给定A = 3862767，DA = 6，则A的“6部分”PA是66，因为A中有2个6。
+
+现给定A、DA、B、DB，请编写程序计算PA + PB。
+</code></pre><p>输入描述:</p>
+<pre><code>输入在一行中依次给出A、DA、B、DB，中间以空格分隔，其中0 &lt; A, B &lt; 1010。
+</code></pre><p>输出描述:</p>
+<pre><code>在一行中输出PA + PB的值。
+</code></pre><p>输入例子:</p>
+<pre><code>3862767 6 13530293 3
+</code></pre><p>输出例子:</p>
+<pre><code>399
+</code></pre><p><strong>代码如下：</strong></p>
+<pre><code>var line = readline();
+var lines = line.split(&apos; &apos;);
+
+var a = parseInt(lines[0]);
+var da = parseInt(lines[1]);
+var b = parseInt(lines[2]);
+var db = parseInt(lines[3]);
+
+var cnta = 0;
+var cntb = 0;
+
+while (a != 0)
+{
+if((a % 10) == da)
+cnta = cnta * 10 + (a % 10);
+
+a = Math.floor(a / 10);
+}
+
+while (b != 0)
+{
+if((b % 10) == db)
+cntb = cntb * 10 + (b % 10);
+
+b = Math.floor(b / 10);
+}
+
+console.log(cnta + cntb);
+</code></pre><h3 id="7-【编程题】-A除以B-20"><a href="#7-【编程题】-A除以B-20" class="headerlink" title="7.【编程题】 A除以B (20)"></a><strong>7.【编程题】 A除以B (20)</strong></h3><p>题目描述</p>
+<pre><code>本题要求计算A/B，其中A是不超过1000位的正整数，B是1位正整数。你需要输出商数Q和余数R，使得A = B * Q + R成立。
+</code></pre><p>输入描述:</p>
+<pre><code>输入在1行中依次给出A和B，中间以1空格分隔。
+</code></pre><p>输出描述:</p>
+<pre><code>在1行中依次输出Q和R，中间以1空格分隔。
+</code></pre><p>输入例子:</p>
+<pre><code>123456789050987654321 7
+</code></pre><p>输出例子:</p>
+<pre><code>17636684150141093474 3
+</code></pre><p><strong>代码如下：</strong></p>
+<pre><code>//大整数除法(除数为小整数。如果除数也是大整数的话，需要用字符串的表达形式来处理相关逻辑了，本质是一样的，都是模拟除法公式）
+var line = readline();
+var lines = line.split(&apos; &apos;);
+
+var a = lines[0];
+var b = parseInt(lines[1]);
+
+var sum = 0;
+var n = 0;
+
+var result = &quot;&quot;;
+
+for(var i = 0; i &lt; a.length; i++)
+{
+var n = a.charCodeAt(i) - 48; //得到数字
+
+sum = sum * 10 + n;
+
+if(sum &gt;= b)
+{
+result += Math.floor(sum / b);
+sum = sum % b;
+}
+else
+{
+if(result == &quot;&quot;)
+continue;
+result += 0;
+}
+}
+
+console.log(result, sum);
+</code></pre><h3 id="8-【编程题】-锤子剪刀布-20"><a href="#8-【编程题】-锤子剪刀布-20" class="headerlink" title="8.【编程题】 锤子剪刀布 (20)"></a><strong>8.【编程题】 锤子剪刀布 (20)</strong></h3><p>题目描述</p>
+<pre><code>大家应该都会玩“锤子剪刀布”的游戏：
+
+现给出两人的交锋记录，请统计双方的胜、平、负次数，并且给出双方分别出什么手势的胜算最大。
+</code></pre><p>输入描述:</p>
+<pre><code>输入第1行给出正整数N（&lt;=105），即双方交锋的次数。随后N行，每行给出一次交锋的信息，即甲、乙双方同时给出的的手势。C代表“锤子”、J代表“剪刀”、B代
+
+表“布”，第1个字母代表甲方，第2个代表乙方，中间有1个空格。
+</code></pre><p>输出描述:</p>
+<pre><code>输出第1、2行分别给出甲、乙的胜、平、负次数，数字间以1个空格分隔。第3行给出两个字母，分别代表甲、乙获胜次数最多的手势，中间有1个空格。如果解不唯
+
+一，则输出按字母序最小的解。
+</code></pre><p>输入例子:</p>
+<pre><code>10
+
+C J
+
+J B
+
+C B
+
+B B
+
+B C
+
+C C
+
+C B
+
+J B
+
+B C
+
+J J
+</code></pre><p>输出例子:</p>
+<pre><code>5 3 2
+
+2 3 5
+
+B B
+</code></pre><p><strong>代码如下：</strong></p>
+<pre><code>var head_line = readline();
+
+var a_win = 0;
+var draw = 0;
+var a_lose = 0;
+
+var a_win_array = {&quot;C&quot;:0, &quot;J&quot;:0, &quot;B&quot;:0};
+var b_win_array = {&quot;C&quot;:0, &quot;J&quot;:0, &quot;B&quot;:0};
+
+var result = &quot;&quot;;
+
+//返回0表示平局，1表示a赢，-1表示a输
+var judgeWin = function(ap, bp)
+{
+if(ap == bp)
+return 0;
+if(ap == &quot;C&quot; &amp;&amp; bp == &quot;J&quot;)
+return 1;
+if(ap == &quot;J&quot; &amp;&amp; bp == &quot;B&quot;)
+return 1;
+if(ap == &quot;B&quot; &amp;&amp; bp == &quot;C&quot;)
+return 1;
+
+return -1;
+}
+
+while(line=readline())
+{
+var lines = line.split(&apos; &apos;);
+var a = lines[0];
+var b = lines[1];
+
+switch(judgeWin(a, b))
+{
+case 0:
+draw ++;
+break;
+case 1:
+a_win ++;
+a_win_array[a] = a_win_array[a] + 1;
+break;
+case -1:
+a_lose ++;
+b_win_array[b] = b_win_array[b] + 1;
+break;
+}
+}
+
+console.log(a_win, draw, a_lose);
+console.log(a_lose, draw, a_win);
+
+var str = &quot;&quot;;
+if(a_win_array[&quot;B&quot;] &gt;= a_win_array[&quot;J&quot;] &amp;&amp; a_win_array[&quot;B&quot;] &gt;= a_win_array[&quot;C&quot;])
+str += &quot;B&quot;;
+else if(a_win_array[&quot;C&quot;] &gt;= a_win_array[&quot;B&quot;] &amp;&amp; a_win_array[&quot;C&quot;] &gt;= a_win_array[&quot;J&quot;])
+str += &quot;C&quot;;
+else
+str += &quot;J&quot;;
+
+if(b_win_array[&quot;B&quot;] &gt;= b_win_array[&quot;J&quot;] &amp;&amp; b_win_array[&quot;B&quot;] &gt;= b_win_array[&quot;C&quot;])
+str += &quot; B&quot;;
+else if(b_win_array[&quot;C&quot;] &gt;= b_win_array[&quot;B&quot;] &amp;&amp; b_win_array[&quot;C&quot;] &gt;= b_win_array[&quot;J&quot;])
+str += &quot; C&quot;;
+else
+str += &quot; J&quot;;
+
+console.log(str);
+</code></pre><h3 id="9-【编程题】-数字黑洞-20"><a href="#9-【编程题】-数字黑洞-20" class="headerlink" title="9.【编程题】 数字黑洞 (20)"></a><strong>9.【编程题】 数字黑洞 (20)</strong></h3><p>题目描述</p>
+<pre><code>给定任一个各位数字不完全相同的4位正整数，如果我们先把4个数字按非递增排序，再按非递减排序，然后用第1个数字减第2个数字，将得到
+一个新的数字。一直重复这样做，我们很快会停在有“数字黑洞”之称的6174，这个神奇的数字也叫Kaprekar常数。
+
+例如，我们从6767开始，将得到
+
+7766 - 6677 = 1089
+9810 - 0189 = 9621
+9621 - 1269 = 8352
+8532 - 2358 = 6174
+7641 - 1467 = 6174
+... ...
+
+现给定任意4位正整数，请编写程序演示到达黑洞的过程。
+</code></pre><p>输入描述:</p>
+<pre><code>输入给出一个(0, 10000)区间内的正整数N。
+</code></pre><p>输出描述:</p>
+<pre><code>如果N的4位数字全相等，则在一行内输出“N - N = 0000”；否则将计算的每一步在一行内输出，直到6174作为差出现，输出格式见样例,每行中间没有空行。注意每个数字按4位数格
+式输出。
+</code></pre><p>输入例子:</p>
+<pre><code>6767
+</code></pre><p>输出例子:</p>
+<pre><code>7766 - 6677 = 1089
+9810 - 0189 = 9621
+9621 - 1269 = 8352
+8532 - 2358 = 6174
+</code></pre><p><strong>代码如下：</strong></p>
+<pre><code>//有些特殊情况没有注意或者题目就没有说清.此处已通.以代码为准即可知道潜规则
+var line = readline();
+
+line = &apos;0&apos;.repeat(4 - line.length) + line;
+
+var all_same = true;
+for(var i = 1; i &lt; line.length; i++)
+{
+if(line[i] == line[0])
+continue;
+all_same = false;
+break;
+}
+
+if(all_same)
+{
+console.log(line + &quot; - &quot; + line + &quot; = 0000&quot;);
+}
+else {
+var num = parseInt(line);
+
+var num_array = new Array(0, 0, 0, 0);
+var result = 0;
+var array_idx = 0;
+
+//source_int输入的整数，pos_num需要占据的非小数的位置，比如4，则数字1需要变成0001进行返回
+var format = function (source_int, pos_num) {
+if (pos_num == undefined)
+pos_num = 4;
+
+source_str = source_int.toString();
+if (source_str.length &gt;= pos_num)
+return source_str;
+
+return &apos;0&apos;.repeat(pos_num - source_str.length) + source_str;
+}
+
+var ascnum = 0;
+var desnum = 0;
+
+while (true) {
+while (num != 0) {
+num_array[array_idx] = num % 10;
+num = Math.floor(num / 10);
+array_idx++;
+}
+
+array_idx = 0;
+num_array = num_array.sort();
+
+ascnum = num_array[3] * 1000 + num_array[2] * 100 + num_array[1] * 10 + num_array[0];
+desnum = num_array[0] * 1000 + num_array[1] * 100 + num_array[2] * 10 + num_array[3];
+num = ascnum - desnum;
+
+console.log(format(ascnum) + &quot; - &quot; + format(desnum) + &quot; = &quot; + format(num));
+
+if (num == 6174)
+break;
+}
+}
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/14/1006-1009/" data-id="cjokv5nof000p44rjq02tvq2d" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/06/20/1010-1014/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          1010-1014
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/14/1004-1005/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">1004-1005</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/h5刷题/">h5刷题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js刷题/">js刷题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/16/你好-Hexo/">你好,Hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/14/leetcode-84-e6-9f-b1-e7-8a-b6-e5-9b-be-e4-b8-ad-e6-9c-80-e5-a4-a7-e7-9a-84-e7-9f-a9-e5-bd-a2/">leetcode 84 柱状图中最大的矩形</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/06/e5-a5-bd-e4-b9-85-e6-b2-a1-e5-86-99-e4-ba-86-ef-bc-8c-e7-bb-a7-e7-bb-ad-e5-8a-a0-e6-b2-b9/">好久没写了，继续加油</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/07/e5-b8-86-e5-8f-94-e7-89-9b-e9-80-bc/">帆叔牛逼</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/04/e5-be-ae-e4-bf-a1-e5-b0-8f-e6-b8-b8-e6-88-8f-e6-94-af-e4-bb-98-e6-8e-a5-e5-85-a5/">微信小游戏支付接入</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 teof<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>1010-1014 | teof的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近很忙。 10.【编程题】 月饼 (25)题目描述 月饼是中国人在中秋佳节时吃的一种传统食品，不同地区有许多不同风味的月饼。现给定所有种类月饼的库存量、总售价、以及市场的最大需  求量，请你计算可以获得的最大收益是多少。  注意：销售时允许取出一部分库存。样例给出的情形是这样的：假如我们有3种月饼，其库存量分别为18、15、10万吨，总售价分别为75、  72、45亿元。如果市场的最大需求量只有">
+<meta name="keywords" content="erlang,html5,开发者,程序猿,编程,代码,开源">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1010-1014">
+<meta property="og:url" content="http://yoursite.com/2018/06/20/1010-1014/index.html">
+<meta property="og:site_name" content="teof的博客">
+<meta property="og:description" content="最近很忙。 10.【编程题】 月饼 (25)题目描述 月饼是中国人在中秋佳节时吃的一种传统食品，不同地区有许多不同风味的月饼。现给定所有种类月饼的库存量、总售价、以及市场的最大需  求量，请你计算可以获得的最大收益是多少。  注意：销售时允许取出一部分库存。样例给出的情形是这样的：假如我们有3种月饼，其库存量分别为18、15、10万吨，总售价分别为75、  72、45亿元。如果市场的最大需求量只有">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-16T16:06:02.025Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1010-1014">
+<meta name="twitter:description" content="最近很忙。 10.【编程题】 月饼 (25)题目描述 月饼是中国人在中秋佳节时吃的一种传统食品，不同地区有许多不同风味的月饼。现给定所有种类月饼的库存量、总售价、以及市场的最大需  求量，请你计算可以获得的最大收益是多少。  注意：销售时允许取出一部分库存。样例给出的情形是这样的：假如我们有3种月饼，其库存量分别为18、15、10万吨，总售价分别为75、  72、45亿元。如果市场的最大需求量只有">
+  
+    <link rel="alternate" href="/atom.xml" title="teof的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">teof的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不想继续废柴</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-1010-1014" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/20/1010-1014/" class="article-date">
+  <time datetime="2018-06-20T15:55:56.000Z" itemprop="datePublished">2018-06-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js刷题/">js刷题</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      1010-1014
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近很忙。</p>
+<h3 id="10-【编程题】-月饼-25"><a href="#10-【编程题】-月饼-25" class="headerlink" title="10.【编程题】 月饼 (25)"></a><strong>10.【编程题】 月饼 (25)</strong></h3><p>题目描述</p>
+<pre><code>月饼是中国人在中秋佳节时吃的一种传统食品，不同地区有许多不同风味的月饼。现给定所有种类月饼的库存量、总售价、以及市场的最大需
+
+求量，请你计算可以获得的最大收益是多少。
+
+注意：销售时允许取出一部分库存。样例给出的情形是这样的：假如我们有3种月饼，其库存量分别为18、15、10万吨，总售价分别为75、
+
+72、45亿元。如果市场的最大需求量只有20万吨，那么我们最大收益策略应该是卖出全部15万吨第2种月饼、以及5万吨第3种月饼，获得
+
+72 + 45/2 = 94.5（亿元）。
+</code></pre><p>输入描述:</p>
+<pre><code>每个输入包含1个测试用例。每个测试用例先给出一个不超过1000的正整数N表示月饼的种类数、以及不超过500（以万吨为单位）的正整数
+
+D表示市场最大需求量。随后一行给出N个正数表示每种月饼的库存量（以万吨为单位）；最后一行给出N个正数表示每种月饼的总售价（以亿
+
+元为单位）。数字间以空格分隔。
+</code></pre><p>输出描述:</p>
+<pre><code>对每组测试用例，在一行中输出最大收益，以亿元为单位并精确到小数点后2位。
+</code></pre><p>输入例子:</p>
+<pre><code>3 20
+
+18 15 10
+
+75 72 45
+</code></pre><p>输出例子:</p>
+<pre><code>94.50
+</code></pre><p><strong>代码如下：</strong></p>
+<pre><code>var line1 = readline();
+var line2 = readline();
+var line3 = readline();
+
+var lines1 = line1.split(&apos; &apos;);
+var category = lines1[0];
+var d = lines1[1];
+
+var lines2 = line2.split(&apos; &apos;);
+var lines2_int = lines2.map(function (item,index,input) {
+return parseInt(item);
+})
+
+var lines3 = line3.split(&apos; &apos;);
+var lines3_int = lines3.map(function (item,index,input) {
+return parseInt(item);
+})
+
+var ratio = new Array(); //单价比
+
+for(var i = 0; i &lt; category; i++)
+{
+var max_save = lines2_int[i];
+var all_price = lines3_int[i];
+ratio.push([i, all_price / max_save]);
+}
+
+var compare = function (x, y) {
+if(x[1] &gt; y[1])
+return -1;
+return 1;
+}
+
+ratio.sort(compare);
+
+var result = 0;
+
+for(var i = 0; i &lt; category; i++)
+{
+var idx = ratio[i][0];
+var r = ratio[i][1];
+if(d &lt;= lines2_int[idx])
+{
+result += r * d;
+break;
+}
+d -= lines2_int[idx];
+result += lines3_int[idx];
+}
+
+function toDecimal2(x) {
+var f = parseFloat(x);
+var f = Math.round(x*100)/100;
+var s = f.toString();
+var rs = s.indexOf(&apos;.&apos;);
+if (rs &lt; 0) {
+rs = s.length;
+s += &apos;.&apos;;
+}
+while (s.length &lt;= rs + 2) {
+s += &apos;0&apos;;
+}
+return s;
+}
+
+console.log(toDecimal2(result));
+</code></pre><h3 id="11-【编程题】-个位数统计-15"><a href="#11-【编程题】-个位数统计-15" class="headerlink" title="11.【编程题】 个位数统计 (15)"></a><strong>11.【编程题】 个位数统计 (15)</strong></h3><p>题目描述</p>
+<pre><code>给定一个k位整数N = dk-1*10k-1 + ... + d1*101 + d0 (0&lt;=di&lt;=9, i=0,...,k-1, dk-1&gt;0)，请编写程序统计每种不同的个位数字出现的次数。例如：给定N = 100311，则有2个0，3个1，和1个3。
+</code></pre><p>输入描述:</p>
+<pre><code>每个输入包含1个测试用例，即一个不超过1000位的正整数N。
+</code></pre><p>输出描述:</p>
+<pre><code>对N中每一种不同的个位数字，以D:M的格式在一行中输出该位数字D及其在N中出现的次数M。要求按D的升序输出。
+</code></pre><p>输入例子:</p>
+<pre><code>100311
+</code></pre><p>输出例子:</p>
+<pre><code>0:2
+
+1:3
+
+3:1
+</code></pre><p><strong>代码如下：</strong></p>
+<pre><code>var line = readline();
+
+var stats = new Array();
+
+var value = 0;
+for(var i = 0; i &lt; line.length; i++)
+{
+value = parseInt(line[i]);
+if(stats[value] !== undefined)
+stats[value] = stats[value] + 1;
+else
+stats[value] = 1;
+}
+
+for(i = 0; i &lt; stats.length; i++)
+{
+if(stats[i] == undefined)
+continue;
+console.log(i + &quot;:&quot; + stats[i]);
+}
+</code></pre><h3 id="12-【编程题】-D进制的A-B-20"><a href="#12-【编程题】-D进制的A-B-20" class="headerlink" title="12.【编程题】 D进制的A+B (20)"></a><strong>12.【编程题】 D进制的A+B (20)</strong></h3><p>题目描述</p>
+<pre><code>输入两个非负10进制整数A和B(&lt;=230-1)，输出A+B的D (1 &lt; D &lt;= 10)进制数。
+</code></pre><p>输入描述:</p>
+<pre><code>输入在一行中依次给出3个整数A、B和D。
+</code></pre><p>输出描述:</p>
+<pre><code>输出A+B的D进制数。
+</code></pre><p>输入例子:</p>
+<pre><code>123 456 8
+</code></pre><p>输出例子:</p>
+<pre><code>1103
+</code></pre><p><strong>代码如下：</strong></p>
+<pre><code>var line = readline();
+var lines = line.split(&apos; &apos;);
+
+var a = parseInt(lines[0]);
+var b = parseInt(lines[1]);
+var d = parseInt(lines[2]);
+var sum = a + b;
+
+var str = (a + b).toString();
+var result = &quot;&quot;;
+var acc = d;
+
+var cnt = 1;
+while (true)
+{
+if(acc &gt; (a+b))
+break;
+cnt++;
+acc *= d;
+}
+
+for(var i = cnt; i &gt;= 0; i--)
+{
+var base = Math.pow(d, i);
+
+if(sum &gt;= base)
+{
+result += Math.floor(sum / base);
+sum = sum % base;
+}
+else
+{
+if(result == &quot;&quot;)
+continue;
+result += 0;
+}
+}
+
+console.log(result);
+</code></pre><h3 id="13-【编程题】-组个最小数-20"><a href="#13-【编程题】-组个最小数-20" class="headerlink" title="13.【编程题】 组个最小数 (20)"></a><strong>13.【编程题】 组个最小数 (20)</strong></h3><p>题目描述</p>
+<pre><code>给定数字0-9各若干个。你可以以任意顺序排列这些数字，但必须全部使用。目标是使得最后得到的数尽可能小（注意0不能做首位）。例如：
+
+给定两个0，两个1，三个5，一个8，我们得到的最小的数就是10015558。
+
+现给定数字，请编写程序输出能够组成的最小的数。
+</code></pre><p>输入描述:</p>
+<pre><code>每个输入包含1个测试用例。每个测试用例在一行中给出10个非负整数，顺序表示我们拥有数字0、数字1、……数字9的个数。整数间用一个空
+
+格分隔。10个数字的总个数不超过50，且至少拥有1个非0的数字。
+</code></pre><p>输出描述:</p>
+<pre><code>在一行中输出能够组成的最小的数。
+</code></pre><p>输入例子:</p>
+<pre><code>2 2 0 0 0 3 0 0 1 0
+</code></pre><p>输出例子:</p>
+<pre><code>10015558
+</code></pre><p><strong>代码如下：</strong></p>
+<pre><code>var line = readline();
+var lines = line.split(&apos; &apos;);
+var lines_int = lines.map(function(item, index,input){ return input[index] = parseInt(item);})
+
+var nums = new Array();
+for(var i = 0; i &lt; lines.length; i++)
+{
+nums[i] = lines[i];
+}
+
+function repeat_str(str, num) {
+if(num &lt;= 0)
+return &quot;&quot;;
+return str.toString().repeat(num);
+}
+
+var result = &quot;&quot;;
+for(var i = 1; i &lt; lines_int.length; i++)
+{
+if(lines_int[i] == 0)
+continue;
+
+if(result == &quot;&quot;)
+{
+result = i + repeat_str(0, lines_int[0]) + repeat_str(i, lines_int[i] - 1);
+}
+else
+{
+result += repeat_str(i, lines_int[i]);
+}
+}
+
+console.log(result);
+</code></pre><h3 id="14-【编程题】-科学计数法-20"><a href="#14-【编程题】-科学计数法-20" class="headerlink" title="14.【编程题】 科学计数法 (20)"></a><strong>14.【编程题】 科学计数法 (20)</strong></h3><p>题目描述</p>
+<pre><code>科学计数法是科学家用来表示很大或很小的数字的一种方便的方法，其满足正则表达式[+-][1-9]&quot;.&quot;[0-9]+E[+-][0-9]+，即数字的整数部分
+
+只有1位，小数部分至少有1位，该数字及其指数部分的正负号即使对正数也必定明确给出。
+
+现以科学计数法的格式给出实数A，请编写程序按普通数字表示法输出A，并保证所有有效位都被保留。
+</code></pre><p>输入描述:</p>
+<pre><code>每个输入包含1个测试用例，即一个以科学计数法表示的实数A。该数字的存储长度不超过9999字节，且其指数的绝对值不超过9999。
+</code></pre><p>输出描述:</p>
+<pre><code>对每个测试用例，在一行中按普通数字表示法输出A，并保证所有有效位都被保留，包括末尾的0。
+</code></pre><p>输入例子:</p>
+<pre><code>+1.23400E-03
+</code></pre><p>输出例子:</p>
+<pre><code>0.00123400
+</code></pre><p><strong>代码如下：</strong></p>
+<pre><code>var line = readline();
+
+var pow = &quot;&quot;;
+var base_str = &quot;&quot;;
+
+var result = &quot;&quot;;
+
+for(var i = 1; i &lt; line.length; i++)
+{
+if(line[i] !== &quot;E&quot;)
+{
+base_str += line[i];
+continue;
+}
+
+var pow_str = line.slice(i+1, line.length);
+var pow_int = parseInt(pow_str);
+if(pow_int == 0)
+{
+result = base_str;
+break;
+}
+if(pow_int &gt; 0)
+{
+result = base_str[0];
+var cnt = 1;
+while (pow_int &gt; 0)
+{
+if(cnt + 1 &lt; base_str.length)
+{
+result += base_str[cnt + 1];
+cnt++;
+pow_int--;
+}
+else
+{
+result += &apos;0&apos;.repeat(pow_int);
+break;
+}
+}
+}
+else
+{
+result = &quot;0.&quot; + &apos;0&apos;.repeat(-pow_int-1) + base_str[0] + base_str.slice(2, base_str.length);
+}
+
+break;
+}
+
+if(line[0] == &quot;-&quot;)
+result = &quot;-&quot; + result;
+
+console.log(result);
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/20/1010-1014/" data-id="cjokv5nn4000344rjh2q1nx44" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/06/21/e9-ba-bb-e5-b0-86-e8-b5-b7-e6-89-8b13-e5-bc-a0-ef-bc-8c-e6-80-bb-e5-85-b1-e6-9c-89-e5-a4-9a-e5-b0-91-e7-a7-8d-e7-bb-84-e5-90-88-e5-8f-af-e8-83-bd-ef-bc-9f/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          麻将起手13张，总共有多少种组合可能？
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/14/1006-1009/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">1006-1009</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/h5刷题/">h5刷题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js刷题/">js刷题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/16/你好-Hexo/">你好,Hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/14/leetcode-84-e6-9f-b1-e7-8a-b6-e5-9b-be-e4-b8-ad-e6-9c-80-e5-a4-a7-e7-9a-84-e7-9f-a9-e5-bd-a2/">leetcode 84 柱状图中最大的矩形</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/06/e5-a5-bd-e4-b9-85-e6-b2-a1-e5-86-99-e4-ba-86-ef-bc-8c-e7-bb-a7-e7-bb-ad-e5-8a-a0-e6-b2-b9/">好久没写了，继续加油</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/07/e5-b8-86-e5-8f-94-e7-89-9b-e9-80-bc/">帆叔牛逼</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/04/e5-be-ae-e4-bf-a1-e5-b0-8f-e6-b8-b8-e6-88-8f-e6-94-af-e4-bb-98-e6-8e-a5-e5-85-a5/">微信小游戏支付接入</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 teof<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

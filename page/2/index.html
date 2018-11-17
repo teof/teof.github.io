@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>teof的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="北航09级研究生。擅长手游研发，历任双端核心开发、项目主程、创业公司技术合伙人。">
+<meta name="keywords" content="erlang,html5,开发者,程序猿,编程,代码,开源">
+<meta property="og:type" content="website">
+<meta property="og:title" content="teof的博客">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="teof的博客">
+<meta property="og:description" content="北航09级研究生。擅长手游研发，历任双端核心开发、项目主程、创业公司技术合伙人。">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="teof的博客">
+<meta name="twitter:description" content="北航09级研究生。擅长手游研发，历任双端核心开发、项目主程、创业公司技术合伙人。">
+  
+    <link rel="alternate" href="/atom.xml" title="teof的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">teof的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不想继续废柴</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-1004-1005" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/14/1004-1005/" class="article-date">
+  <time datetime="2018-06-13T17:05:48.000Z" itemprop="datePublished">2018-06-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js刷题/">js刷题</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/14/1004-1005/">1004-1005</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><strong>5.【编程题】福尔摩斯的约会 (20)</strong></li>
+</ul>
+<p>题目描述</p>
+<pre><code>大侦探福尔摩斯接到一张奇怪的字条：“我们约会吧！ 3485djDkxh4hhGE 2984akDfkkkkggEdsb s&amp;hgsfdk d&amp;Hyscvnm”。大侦探很
+
+快就明白了，字条上奇怪的乱码实际上就是约会的时间“星期四 14:04”，因为前面两字符串中第1对相同的大写英文字母（大小写有区分）是
+
+第4个字母&apos;D&apos;，代表星期四；第2对相同的字符是&apos;E&apos;，那是第5个英文字母，代表一天里的第14个钟头（于是一天的0点到23点由数字0到9、
+
+以及大写字母A到N表示）；后面两字符串第1对相同的英文字母&apos;s&apos;出现在第4个位置（从0开始计数）上，代表第4分钟。现给定两对字符串，
+
+请帮助福尔摩斯解码得到约会的时间。
+</code></pre><p>输入描述:</p>
+<pre><code>输入在4行中分别给出4个非空、不包含空格、且长度不超过60的字符串。
+</code></pre><p>输出描述:</p>
+<pre><code>在一行中输出约会的时间，格式为“DAY HH:MM”，其中“DAY”是某星期的3字符缩写，即MON表示星期一，TUE表示星期二，WED表示星期三，THU表示星期
+
+四，FRI表示星期五，SAT表示星期六，SUN表示星期日。题目输入保证每个测试存在唯一解。
+</code></pre><p>输入例子:</p>
+<pre><code>3485djDkxh4hhGE
+
+2984akDfkkkkggEdsb
+
+s&amp;hgsfdk
+
+d&amp;Hyscvnm
+</code></pre><p>输出例子:</p>
+<pre><code>THU 14:04
+</code></pre><p><strong>代码如下：</strong></p>
+<pre><code>//字符转ascii码：用charCodeAt();
+//ascii码砖字符：用fromCharCode();
+//大写字母A 到Z 的值是从65 到90;
+//小写a到z 是从91 到 122;
+
+var line1 = readline();
+var line2 = readline();
+var line3 = readline();
+var line4 = readline();
+
+var min_length1 = Math.min(line1.length, line2.length);
+var min_length2 = Math.min(line3.length, line4.length);
+
+var results = new Array(undefined, undefined, undefined);
+var cnt = 0;
+
+for(var j = 0; j &lt; min_length1; j++)
+{
+if(line1[j] == line2[j] &amp;&amp; line1[j] &gt;= &apos;A&apos; &amp;&amp; line1[j] &lt;= &apos;Z&apos;)
+{
+if(results[0] == undefined)
+results[0] = line1[j];
+}
+
+if(results[0] !== undefined &amp;&amp; line1[j] == line2[j] &amp;&amp; ((line1[j] &gt;= &apos;A&apos; &amp;&amp; line1[j] &lt;= &apos;Z&apos;) || (line1[j] &gt;= &apos;a&apos; &amp;&amp; line1[j] &lt;= &apos;z&apos;) || (line1[j] &gt;= &apos;0&apos; &amp;&amp; line1[j] &lt;= &apos;9&apos;)))
+{
+if(cnt == 1)
+results[1] = line1[j];
+cnt++;
+}
+}
+
+for(var j = 0; j &lt; min_length2; j++)
+{
+if(line3[j] == line4[j] &amp;&amp; ((line3[j] &gt;= &apos;A&apos; &amp;&amp; line3[j] &lt;= &apos;Z&apos;) || (line3[j] &gt;= &apos;a&apos; &amp;&amp; line3[j] &lt;= &apos;z&apos;)))
+{
+results[2] = j;
+break;
+}
+}
+
+var str1 = &quot;&quot;;
+switch (results[0])
+{
+case &apos;A&apos;: str1 += &quot;MON &quot;; break;
+case &apos;B&apos;: str1 += &quot;TUE &quot;; break;
+case &apos;C&apos;: str1 += &quot;WED &quot;; break;
+case &apos;D&apos;: str1 += &quot;THU &quot;; break;
+case &apos;E&apos;: str1 += &quot;FRI &quot;; break;
+case &apos;F&apos;: str1 += &quot;SAT &quot;; break;
+case &apos;G&apos;: str1 += &quot;SUN &quot;; break;
+}
+
+if(results[1] &gt;= &apos;A&apos; &amp;&amp; results[1] &lt;= &apos;N&apos;)
+{
+str1 += (results[1].charCodeAt(results[1]) - 65 + 10);
+}
+else if(results[1] &gt;= &apos;0&apos; &amp;&amp; results[1] &lt;= &apos;9&apos;)
+{
+str1 += &quot;0&quot; + results[1];
+}
+
+if(results[2] &lt; 10)
+str1 += &quot;:0&quot; + results[2];
+else
+str1 += &quot;:&quot; + results[2];
+
+console.log(str1);
+</code></pre><ul>
+<li><strong>5.【编程题】德才论 (25)</strong></li>
+</ul>
+<p>题目描述</p>
+<pre><code>宋代史学家司马光在《资治通鉴》中有一段著名的“德才论”：“是故才德全尽谓之圣人，才德兼亡谓之愚人，德胜才谓之君子，才胜德谓之
+
+小人。凡取人之术，苟不得圣人，君子而与之，与其得小人，不若得愚人。”
+
+现给出一批考生的德才分数，请根据司马光的理论给出录取排名。
+</code></pre><p>输入描述:</p>
+<pre><code>输入第1行给出3个正整数，分别为：N（&lt;=105），即考生总数；L（&gt;=60），为录取最低分数线，即德分和才分均不低于L的考生才有资格
+
+被考虑录取；H（&lt;100），为优先录取线——德分和才分均不低于此线的被定义为“才德全尽”，此类考生按德才总分从高到低排序；才分不到
+
+但德分到线的一类考生属于“德胜才”，也按总分排序，但排在第一类考生之后；德才分均低于H，但是德分不低于才分的考生属于“才德兼
+
+亡”但尚有“德胜才”者，按总分排序，但排在第二类考生之后；其他达到最低线L的考生也按总分排序，但排在第三类考生之后。
+
+随后N行，每行给出一位考生的信息，包括：准考证号、德分、才分，其中准考证号为8位整数，德才分为区间[0, 100]内的整数。数字间以空格分隔。
+</code></pre><p>输出描述:</p>
+<pre><code>输出第1行首先给出达到最低分数线的考生人数M，随后M行，每行按照输入格式输出一位考生的信息，考生按输入中说明的规则从高到低排序。当某类考生中有多人
+
+总分相同时，按其德分降序排列；若德分也并列，则按准考证号的升序输出。
+</code></pre><p>输入例子:</p>
+<pre><code>14 60 80
+
+10000001 64 90
+
+10000002 90 60
+
+10000011 85 80
+
+10000003 85 80
+
+10000004 80 85
+
+10000005 82 77
+
+10000006 83 76
+
+10000007 90 78
+
+10000008 75 79
+
+10000009 59 90
+
+10000010 88 45
+
+10000012 80 100
+
+10000013 90 99
+
+10000014 66 60
+</code></pre><p>输出例子:</p>
+<pre><code>12
+
+10000013 90 99
+
+10000012 80 100
+
+10000003 85 80
+
+10000011 85 80
+
+10000004 80 85
+
+10000007 90 78
+
+10000006 83 76
+
+10000005 82 77
+
+10000002 90 60
+
+10000014 66 60
+
+10000008 75 79
+
+10000001 64 90
+</code></pre><p><strong>代码如下：</strong></p>
+<pre><code>var head_line = readline();
+var head_lines = head_line.split(&apos; &apos;);
+
+var all_num = parseInt(head_lines[0]);
+var low = parseInt(head_lines[1]);
+var high = parseInt(head_lines[2]);
+
+//四档考生，先分完档再在每档内按规则排序
+var s1 = new Array();
+var s2 = new Array();
+var s3 = new Array();
+var s4 = new Array();
+
+while(line=readline())
+{
+var lines = line.split(&apos; &apos;);
+var stu_no = parseInt(lines[0]);
+var score_de = parseInt(lines[1]);
+var score_cai = parseInt(lines[2]);
+
+if(score_de &lt; low || score_cai &lt; low)
+continue;
+
+if(score_de &gt;= high &amp;&amp; score_cai &gt;= high)
+{
+s1.push({stu_no, score_de, score_cai});
+continue;
+}
+if(score_de &gt;= high &amp;&amp; score_cai &lt; high)
+{
+s2.push({stu_no, score_de, score_cai});
+continue;
+}
+if(score_de &lt; high &amp;&amp; score_cai &lt; high &amp;&amp; score_de &gt;= score_cai)
+{
+s3.push({stu_no, score_de, score_cai});
+continue;
+}
+s4.push({stu_no, score_de, score_cai})
+}
+
+//同档权值相同以后的后续比较规则
+var inner_rule = function ({stu_no1, score_de1, score_cai1}, {stu_no2, score_de2, score_cai2}) {
+if(score_de1 == score_de2)
+{
+if(stu_no1 &gt; stu_no2)
+return 1;
+else
+return -1
+}
+else if(score_de1 &gt; score_de2)
+return -1;
+else
+return 1;
+}
+
+//考生的内部排序规则
+var compare = function (x, y) {
+var stu_no1 = x[&quot;stu_no&quot;];
+var score_de1 = x[&quot;score_de&quot;];
+var score_cai1 = x[&quot;score_cai&quot;];
+var stu_no2 = y[&quot;stu_no&quot;];
+var score_de2 = y[&quot;score_de&quot;];
+var score_cai2 = y[&quot;score_cai&quot;];
+if (score_de1 + score_cai1 == score_de2 + score_cai2) {
+return inner_rule({stu_no1, score_de1, score_cai1}, {stu_no2, score_de2, score_cai2});
+} else if (score_de1 + score_cai1 &gt; score_de2 + score_cai2) {
+return -1;
+} else {
+return 1;
+}
+}
+
+s1 = s1.sort(compare);
+s2 = s2.sort(compare);
+s3 = s3.sort(compare);
+s4 = s4.sort(compare);
+
+var result = s1.concat(s2);
+result = result.concat(s3);
+result = result.concat(s4);
+
+console.log(result.length);
+
+for(var i = 0; i &lt; result.length; i++)
+{
+console.log(result[i][&quot;stu_no&quot;] + &quot; &quot; + result[i][&quot;score_de&quot;] + &quot; &quot; + result[i][&quot;score_cai&quot;])
+}
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/14/1004-1005/" data-id="cjokv5nn4000144rjrh4tcmfv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-1000-1003" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/13/1000-1003/" class="article-date">
+  <time datetime="2018-06-12T16:23:54.000Z" itemprop="datePublished">2018-06-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js刷题/">js刷题</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/13/1000-1003/">1000-1003</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##刷题 JavaScript(V8.6.0.0) </p>
+<p>题目网站：<a href="https://www.nowcoder.com/pat/6/problems" target="_blank" rel="noopener">https://www.nowcoder.com/pat/6/problems</a> </p>
+<p>本人在nodejs环境下自测，你也可以选择 在线自测网站：<a href="http://www.webtoolkitonline.com/javascript-tester.html" target="_blank" rel="noopener">http://www.webtoolkitonline.com/javascript-tester.html</a> </p>
+<p>美化/净化/加密/解密/混淆网站：<a href="https://tool.lu/js/" target="_blank" rel="noopener">https://tool.lu/js/</a> </p>
+<p>作为js新人，书都还没看完。前两题一次秒过，试了试手，继续加油。</p>
+<ul>
+<li><strong>1.【编程题】a+b</strong></li>
+</ul>
+<p>问题描述：</p>
+<pre><code>计算a+b的和
+
+每行包行两个整数a和b
+
+对于每行输入对应输出一行a和b的和
+</code></pre><p>输入</p>
+<pre><code>1 5
+</code></pre><p>输出</p>
+<pre><code>6
+</code></pre><p><strong>代码如下：</strong></p>
+<pre><code>while(line=readline()){
+    var lines = line.split(&apos; &apos;);
+    var a = parseInt(lines[0]);
+    var b = parseInt(lines[1]);
+    print(a+b);
+}
+</code></pre><ul>
+<li><strong>2.【编程题】A+B和C (15)</strong></li>
+</ul>
+<p>题目描述</p>
+<pre><code>给定区间[-2的31次方, 2的31次方]内的3个整数A、B和C，请判断A+B是否大于C。
+</code></pre><p>输入描述:</p>
+<pre><code>输入第1行给出正整数T(&lt;=10)，是测试用例的个数。随后给出T组测试用例，每组占一行，顺序给出A、B和C。整数间以空格分隔。
+</code></pre><p>输出描述:</p>
+<pre><code>对每组测试用例，在一行中输出“Case #X: true”如果A+B&gt;C，否则输出“Case #X: false”，其中X是测试用例的编号（从1开始）。
+</code></pre><p>输入例子:</p>
+<pre><code>4
+
+1 2 3
+
+2 3 4
+
+2147483647 0 2147483646
+
+0 -2147483648 -2147483647
+</code></pre><p>输出例子:</p>
+<pre><code>Case #1: false
+
+Case #2: true
+
+Case #3: true
+
+Case #4: false
+</code></pre><p><strong>代码如下：</strong></p>
+<pre><code>var startNum = parseInt(readline());
+var count = 1;
+
+while(line=readline()){
+    var lines = line.split(&apos; &apos;);
+    var a = parseInt(lines[0]);
+    var b = parseInt(lines[1]);
+    var c = parseInt(lines[2]);
+    print(&quot;Case #&quot; + count + &quot;: &quot; + (a + b &gt; c));
+    count ++;
+}
+</code></pre><ul>
+<li><strong>3.【编程题】数字分类 (20)</strong></li>
+</ul>
+<p>题目描述</p>
+<pre><code>给定一系列正整数，请按要求对数字进行分类，并输出以下5个数字：
+</code></pre><p>​<br>​<br>    A1 = 能被5整除的数字中所有偶数的和；</p>
+<pre><code>A2 = 将被5除后余1的数字按给出顺序进行交错求和，即计算n1-n2+n3-n4...；
+
+A3 = 被5除后余2的数字的个数；
+
+A4 = 被5除后余3的数字的平均数，精确到小数点后1位；
+
+A5 = 被5除后余4的数字中最大数字。
+</code></pre><p>输入描述:</p>
+<pre><code>每个输入包含1个测试用例。每个测试用例先给出一个不超过1000的正整数N，随后给出N个不超过1000的待分类的正整数。数字间以空格分隔。
+</code></pre><p>输出描述:</p>
+<pre><code>对给定的N个正整数，按题目要求计算A1~A5并在一行中顺序输出。数字间以空格分隔，但行末不得有多余空格。
+
+若其中某一类数字不存在，则在相应位置输出“N”。
+</code></pre><p>输入例子:</p>
+<pre><code>13 1 2 3 4 5 6 7 8 9 10 20 16 18
+</code></pre><p>输出例子:</p>
+<pre><code>30 11 2 9.7 9
+</code></pre><p><strong>代码如下：</strong></p>
+<pre><code>var line = readline();
+var lines = line.split(&apos; &apos;);
+var num = parseInt(lines[0]);
+
+var a1_sum = &quot;N&quot;;
+
+var a2_sum = &quot;N&quot;;
+var a2_postive = true;  //a2计算是否是正数，true取+，false取-
+
+var a3_cnt = &quot;N&quot;;
+
+var a4_sum = &quot;N&quot;;
+var a4_cnt = 0;
+
+var a5_max = &quot;N&quot;;
+
+var length = lines.length;
+for(var i = 1; i &lt; length; i++)
+{
+    var value = parseInt(lines[i]);
+    switch (value % 5)
+    {
+        case 0:
+            if(value % 2 == 0)
+            {
+                if(a1_sum == &quot;N&quot;)
+                    a1_sum = value;
+                else
+                    a1_sum += value;
+            }
+            break;
+        case 1:
+            if(a2_sum == &quot;N&quot;)
+                a2_sum = 0;
+            if(a2_postive)
+                a2_sum += value;
+            else
+                a2_sum -= value;
+            a2_postive = !a2_postive;
+            break;
+        case 2:
+            if(a3_cnt == &quot;N&quot;)
+                a3_cnt = 0;
+            a3_cnt++;
+            break;
+        case 3:
+            if(a4_sum == &quot;N&quot;)
+                a4_sum = 0;
+            a4_sum += value;
+            a4_cnt++;
+            break;
+        case 4:
+            if(a5_max == &quot;N&quot;)
+                a5_max = value;
+            else
+                a5_max = Math.max(a5_max, value);
+            break;
+    }
+}
+
+//强制保留2额外小数，即527.0显示为527.0而不是527。
+//如果不需要强制保留的话直接Math.round(x*100)/100;即可
+function toDecimal2(x) {
+    var f = parseFloat(x);
+    var f = Math.round(x*10)/10;
+    var s = f.toString();
+    var rs = s.indexOf(&apos;.&apos;);
+    if (rs &lt; 0) {
+        rs = s.length;
+        s += &apos;.&apos;;
+    }
+    while (s.length &lt;= rs + 1) {
+        s += &apos;0&apos;;
+    }
+    return s;
+}
+
+var a4_result = &quot;N&quot;;
+if(a4_sum !== &quot;N&quot;)
+    a4_result = toDecimal2(a4_sum / a4_cnt);
+
+console.log(a1_sum + &quot; &quot; + a2_sum + &quot; &quot; + a3_cnt + &quot; &quot; + a4_result + &quot; &quot; + a5_max);
+</code></pre><ul>
+<li><strong>4.【编程题】数素数 (20)</strong></li>
+</ul>
+<p>题目描述</p>
+<pre><code>令Pi表示第i个素数。现任给两个正整数M &lt;= N &lt;= 10000，请输出PM到PN的所有素数。
+</code></pre><p>​    </p>
+<p>输入描述:</p>
+<pre><code>输入在一行中给出M和N，其间以空格分隔。
+</code></pre><p>输出描述:</p>
+<pre><code>输出从PM到PN的所有素数，每10个数字占1行，其间以空格分隔，但行末不得有多余空格。
+</code></pre><p>输入例子:</p>
+<pre><code>5 27
+</code></pre><p>输出例子:</p>
+<pre><code>11 13 17 19 23 29 31 37 41 43
+
+47 53 59 61 67 71 73 79 83 89
+
+97 101 103
+</code></pre><p><strong>代码如下：</strong></p>
+<pre><code>var line = readline();
+var lines = line.split(&apos; &apos;);
+var m = parseInt(lines[0]);
+var n = parseInt(lines[1]);
+
+var results = new Array();
+var idx = 0;
+var get_result = false;
+var cur_num = 2;
+
+while (!get_result)
+{
+    if(judgePrime(cur_num)) {
+        idx++;
+
+        if (idx &gt;= m)
+            results[results.length] = cur_num;
+
+        if (idx == n)
+            get_result = true;
+    }
+
+    cur_num ++;
+}
+
+//判断x是否为素数,只处理x为整数的情况
+function judgePrime(x) {
+    if(x &lt; 2)
+        return false;
+    for(var i = 2; i &lt;= Math.sqrt(x); i ++)
+    {
+        if ((x % i) == 0)
+            return false;
+    }
+    return true;
+}
+
+var strline = &quot;&quot;;
+for(var j = 0; j &lt; results.length; j++)
+{
+    if(j % 10 == 0)
+        strline = results[j];
+    else
+        strline += &quot; &quot; + results[j];
+    if(j % 10 == 9)
+    {
+        console.log(strline);
+        strline = &quot;&quot;;
+    }
+}
+if(strline !== &quot;&quot;)
+    console.log(strline);
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/13/1000-1003/" data-id="cjokv5nn4000044rj92v4yo4u" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-e7-bc-85-e6-80-80" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/25/e7-bc-85-e6-80-80/" class="article-date">
+  <time datetime="2018-05-25T14:16:31.000Z" itemprop="datePublished">2018-05-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Uncategorized/">Uncategorized</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/25/e7-bc-85-e6-80-80/">缅怀</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天得到了一个很坏的消息。我的好拍档可能真的回不来了。我的悲伤弥漫到了全身，周围的人事环绕，仿佛完全没有在乎。这世界节奏太快，快到来不及祷告。</p>
+<p>我在这思念着我的拍档，寄希望于最后的渺茫，就像能在梦里你回来了，开着玩笑，吃着炸鸡。 一位大牛，公司副总，和大伙有着这许多的情感交织，带来了无限的欢快。为什么呢，为什么呢。</p>
+<p>我能理解这样的决定，因为我自己就曾设身处地于那个地步。我能走出来，家人和我的外号占据了大部分因素。我是小强，打不死的小强，越受挫会越激发我的努力。我真希望能分一点这样死皮赖脸的精神给你。。。</p>
+<p>我想不通，想不通，多么希望你能够回来。也许是真的倦了，累了，不愿虚与委蛇这个世界。</p>
+<p>兄弟，我哭了，我想你回来。相处的时光苦乐交织，未来仍会这样，但我在这里啊。</p>
+<p>我会努力，带上你那一份对技术的热爱，继续生活。我的拍档，我的兄弟！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/25/e7-bc-85-e6-80-80/" data-id="cjokv5nnz000f44rjj6ko2s2m" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-e7-bb-b4-e6-8a-a4-e6-96-87-e6-a1-a3" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/12/e7-bb-b4-e6-8a-a4-e6-96-87-e6-a1-a3/" class="article-date">
+  <time datetime="2018-05-11T16:32:27.000Z" itemprop="datePublished">2018-05-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Uncategorized/">Uncategorized</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/12/e7-bb-b4-e6-8a-a4-e6-96-87-e6-a1-a3/">维护文档</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<p>附注：66专指内网发版机器，即192.168.1.66；中心后台特指外网中心后台，即 <a href="http://119.29.73.196/web/admin/index.php" target="_blank" rel="noopener">http://119.29.73.196/web/admin/index.php</a></p>
+<h3 id="1-热更代码"><a href="#1-热更代码" class="headerlink" title="1. 热更代码"></a>1. 热更代码</h3><ul>
+<li><p>进入66的发版目录，以v1.1.11为例，更新map_actor模块</p>
+<pre><code># cd /data/game/
+</code></pre></li>
+<li><p>找到对应版本号的目录，v1.1.11分支的Android和IOS分别是：android_main_55594_v1.1.11 和 ios_main_55594_v1.1.11</p>
+</li>
+<li><p>分别进入这两个目录的server目录下，执行map_actor模块同步到外网中心服模板机器</p>
+<pre><code># cd /data/game/android_main_55594_v1.1.11/server
+# make release_android
+# ./scripts/unix/sync_file -u root -h 119.29.73.196 -s androids0 map_actor
+</code></pre></li>
+</ul>
+<pre><code># cd /data/game/ios_main_55594_v1.1.11/server
+# make release_ios
+# ./scripts/unix/sync_file -u root -h 119.29.73.196 -s ioss0 map_actor
+</code></pre><ul>
+<li><p>打开外网后台 <a href="http://119.29.73.196/web/admin/index.php" target="_blank" rel="noopener">http://119.29.73.196/web/admin/index.php</a> 进入服务器管理。勾选【页面右上角】所有机器（除去中心后台机），点击同步代码</p>
+<p><img src="D:\trunk\trunk\server\doc_img\维护文档11.png" alt="维护文档11"></p>
+</li>
+<li><p>勾选所有要热更的服务器，点击【页面正上方】同步代码，然后将要热更的模块map_actor填入【热更代码：】文本框中，点击提交</p>
+<p><img src="D:\trunk\trunk\server\doc_img\维护文档22.png" alt="维护文档22"></p>
+</li>
+</ul>
+<h3 id="2-热更配置"><a href="#2-热更配置" class="headerlink" title="2. 热更配置"></a>2. 热更配置</h3><ul>
+<li><p>进入66的发版目录，以v1.1.11为例，更新配置</p>
+<pre><code># cd /data/game/
+</code></pre></li>
+<li><p>找到对应版本号的目录，v1.1.11分支的Android和IOS分别是：android_main_55594_v1.1.11 和 ios_main_55594_v1.1.11</p>
+</li>
+<li><p>分别进入这两个目录的server目录下，执行所有模块同步到外网中心服模板机器【注意：热更配置一定要全部更新，因为外网新服启动不会加载配置】</p>
+<pre><code># cd /data/game/android_main_55594_v1.1.11/server
+# make release_android
+# ./scripts/unix/sync_file -u root -h 119.29.73.196 -s androids0 -a 
+</code></pre></li>
+</ul>
+<pre><code># cd /data/game/ios_main_55594_v1.1.11/server
+# make release_ios
+# ./scripts/unix/sync_file -u root -h 119.29.73.196 -s ioss0 -a 
+</code></pre><ul>
+<li><p>打开外网后台 <a href="http://119.29.73.196/web/admin/index.php" target="_blank" rel="noopener">http://119.29.73.196/web/admin/index.php</a> 进入服务器管理。勾选【页面右上角】所有机器（除去中心后台机），点击同步代码</p>
+</li>
+<li><p>勾选所有要热更的服务器，点击【页面正上方】同步代码，然后将要热更的配置填入【热更配置：】文本框中，点击提交</p>
+</li>
+<li><p>Tips：svn status 和 svn diff 可以帮助确认当前环境的svn状态，避免误写等异常事情</p>
+<p>​</p>
+</li>
+</ul>
+<h3 id="3-开通新服"><a href="#3-开通新服" class="headerlink" title="3. 开通新服"></a>3. 开通新服</h3><p>以下面新服为例：</p>
+<p><img src="_img/维护文档3-1.png" alt="维护文档3-1"></p>
+<ul>
+<li><p>打开外网后台 <a href="http://119.29.73.196/web/admin/index.php" target="_blank" rel="noopener">http://119.29.73.196/web/admin/index.php</a> 进入服务器管理，点击添加服务器</p>
+<p><img src="_img/维护文档3-2.png" alt="维护文档3-2"></p>
+</li>
+<li><p>参考最接近的服务器2065，进行配置</p>
+<ul>
+<li>关于选择几区：每20一区，因此66落在4区</li>
+<li>红框为特别注意的地方，IP部分参考前者复制粘贴</li>
+</ul>
+<p><img src="_img/维护文档3-3.png" alt="维护文档3-3"></p>
+<p><img src="_img/维护文档3-4.png" alt="维护文档3-4"></p>
+</li>
+<li><p>配好保存以后，点击页面正上方【开通新服】，点击页面正上方【清档】</p>
+<p><img src="_img/维护文档3-5.png" alt="维护文档3-5"></p>
+</li>
+<li><p>在实际开服的当天点击【启动服务器】，成功以后，切换服务器运行状态、是否推荐、对外可见</p>
+<p><img src="_img/维护文档3-6.png" alt="维护文档3-6"></p>
+</li>
+<li><p>注意：一定要开服当天才能第一次启动服务器，不然会有脏数据生成！如果没有在开服当天就启动服务器了，注意清除mongodb的该数据库内容</p>
+</li>
+</ul>
+<h3 id="4-更新36、38服"><a href="#4-更新36、38服" class="headerlink" title="4. 更新36、38服"></a>4. 更新36、38服</h3><ul>
+<li>36服：线上内容验证服。和外网正在跑的版本一致</li>
+<li>38服：周更新内容验证服。是即将上线的版本，在外网的验证服</li>
+</ul>
+<p>以v1.1.11为例，用android_main_55594_v1.1.11更新38服：</p>
+<ul>
+<li><p>进入66的发版目录，若目录android_main_55594_v1.1.11不存在，进行以下操作：</p>
+<p>A.check out分支代码</p>
+<pre><code># cd /data/game
+# mkdir android_main_55594_v1.1.11
+# cd android_main_55594_v1.1.11
+# checksvn.sh branches/mix/important/android_release_20180425_55594_v1.1.11
+</code></pre></li>
+</ul>
+<p>  B.复制server.config保证顺利编译</p>
+<pre><code># cd /data/game/android_main_55594_v1.1.11/server
+# cp /data/dsgl_new/server/system_config/server.config ./system_config/server.config
+</code></pre><ul>
+<li><p>进入目录，执行编译，并同步至38服</p>
+<pre><code># cd /data/game/android_main_55594_v1.1.11/server
+# make debug
+# ./scripts/unix/sync_file -u root -h 139.199.187.235 -s DSGLs38 -a
+</code></pre></li>
+<li><p>进入到139.199.187.235，进行相关操作（加载代码/加载配置/关服/开服等）</p>
+<ul>
+<li><p>开服/关服</p>
+<h1 id="cd-data-game-DSGL-s38-scripts-unix"><a href="#cd-data-game-DSGL-s38-scripts-unix" class="headerlink" title="cd /data/game/DSGL_s38/scripts/unix"></a>cd /data/game/DSGL_s38/scripts/unix</h1><h1 id="s-start"><a href="#s-start" class="headerlink" title="./s start"></a>./s start</h1><h1 id="s-stop"><a href="#s-stop" class="headerlink" title="./s stop"></a>./s stop</h1></li>
+<li><p>加载代码/配置&lt;加载10000分钟以内的模块/加载全部配置&gt;</p>
+<h1 id="cd-data-game-DSGL-s38-scripts-unix-1"><a href="#cd-data-game-DSGL-s38-scripts-unix-1" class="headerlink" title="cd /data/game/DSGL_s38/scripts/unix"></a>cd /data/game/DSGL_s38/scripts/unix</h1><h1 id="scripts-unix-s-attach-xxx"><a href="#scripts-unix-s-attach-xxx" class="headerlink" title="./scripts/unix/s attach xxx"></a>./scripts/unix/s attach xxx</h1><blockquote>
+<p>common_update:reload_mod_modified(common, 10000).<br>common_config:load_all(true).</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p>  ​</p>
+<h3 id="5-IOS提审（专门用于IOS审核，不对玩家开放）"><a href="#5-IOS提审（专门用于IOS审核，不对玩家开放）" class="headerlink" title="5. IOS提审（专门用于IOS审核，不对玩家开放）"></a>5. IOS提审（专门用于IOS审核，不对玩家开放）</h3><ul>
+<li><p>在中心后台选择一个空闲的低于50的server_id，如27，进行添加服务器的配置，模板参考20。（一定要配，不然没有充值回调！！！）其中游戏端口填20037，后台端口填9037（即以20010和9010为基数，加上server_id得出结果）其他依葫芦画瓢：</p>
+<p><img src="_img/维护文档5-1.bmp" alt="维护文档5-1"></p>
+</li>
+<li><p>根据要用的版本，去到66的发版目录/data/game下，选择IOS版本相应的目录。</p>
+<pre><code># cd /data/game/ios_main_55947_v1.1.12/server
+# make release_ios        laolisdk使用make release
+# ./scripts/unix/sync_file -u root -h 39.108.192.101 -s IOSs27 -a
+</code></pre></li>
+</ul>
+<p>  ​    </p>
+<ul>
+<li><p>进入39.108.192.101的对应服务器目录下， 拷贝其他服的server.config到本服，然后进行相应替换。</p>
+<pre><code># cd /data/game/IOS_s27
+# cp ../IOS_s20/system_config/server.config ./system_config/
+# vim system_config/server.config
+
+% 修改以下字段值，注意和第一步配置的相匹配
+&gt; {server_no, 27}.
+&gt; {serverid,[27]}.
+&gt; {line_start_port, 20037}.
+&gt; {web_port, 9037}.
+&gt; {mongo_config, {&quot;localhost&quot;, 27017, &quot;dsgl27&quot;, &quot;dsgl&quot;, &quot;123456&quot;}}.
+
+# ./scripts/unix/s init_db
+# ./scripts/unix/s start
+
+% 将审核用的配置拷贝到本地，attach到游戏服以后，进行这三个表的加载 
+# cp -f ~/check_ios_config/v1.1.10/* ./config/iOS/
+# ./scripts/unix/s attach xxx
+% 这三个表影响审核的一些信息，如果有结构改变就需要调整。
+&gt;common_config:load(&apos;RechargeActivity&apos;),common_config:load(&apos;RechargeList&apos;),common_config:load(&apos;PushRules&apos;).
+
+% 修改服务器列表
+# cd /data/web_sy/web/api/
+# cp server_list_ios20.php server_list_ios27.php
+# vim server_list_ios27.php
+% 修改其中的server_id为27、game_port为20037端口号
+&gt;&apos;server_id&apos; =&gt; &quot;27&quot;
+&gt;&apos;game_port&apos; =&gt; 20037
+
+% 地址 http://zhuyougame.com/web/api/server_list_ios27.php
+</code></pre></li>
+<li><p>【仅针对米壳】修改后台文件pay_mike.php，将炳鸿给的subgameid和pay_key照样拷贝，然后提交到svn更新出去（web_sy更新见下方操作）。【其他平台】自行判断充值是否成功。</p>
+<pre><code>% 登陆66
+# cd /data/web_sy/
+# svn up
+# ./sync_file -h 119.29.73.196
+</code></pre></li>
+</ul>
+<pre><code>​
+</code></pre><h3 id="6-内网测试服维护"><a href="#6-内网测试服维护" class="headerlink" title="6. 内网测试服维护"></a>6. 内网测试服维护</h3><ul>
+<li><p>进入66</p>
+<ul>
+<li><p>方式一</p>
+<h1 id="cd-data-dsgl-new-server"><a href="#cd-data-dsgl-new-server" class="headerlink" title="cd /data/dsgl_new/server"></a>cd /data/dsgl_new/server</h1><h1 id="make-all"><a href="#make-all" class="headerlink" title="make all"></a>make all</h1><h1 id="scripts-unix-s-attach-xx"><a href="#scripts-unix-s-attach-xx" class="headerlink" title="./scripts/unix/s attach xx"></a>./scripts/unix/s attach xx</h1><blockquote>
+<p>common_config:load_all(true).</p>
+</blockquote>
+</li>
+<li><p>方式二</p>
+<h1 id="cd-data-dsgl-new-server-1"><a href="#cd-data-dsgl-new-server-1" class="headerlink" title="cd /data/dsgl_new/server"></a>cd /data/dsgl_new/server</h1><h1 id="make-debug"><a href="#make-debug" class="headerlink" title="make debug"></a>make debug</h1></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>如果上述过程中有报错，则排查问题。如果没有报错，但是log有异常，则重启，重启还有问题就清档</p>
+<pre><code># ./s drop_mongo
+</code></pre></li>
+</ul>
+<pre><code>​
+</code></pre><h3 id="7-导入外网玩家数据"><a href="#7-导入外网玩家数据" class="headerlink" title="7. 导入外网玩家数据"></a>7. 导入外网玩家数据</h3><ul>
+<li><p>在192.168.1.6上（内网测试机器2）</p>
+<pre><code># cd /home/game/db_backup
+</code></pre></li>
+<li><p>注意命名格式，dsgl_SERVERID _ 年 _ 月 _ 日</p>
+<pre><code># scp -r root@119.29.245.80:/data/DbBackup/2018_05_02/dsgl2001/ ./dsgl_2001_2018_5_2
+# mongorestore -d dsl_2001 --dir=./dsgl_2001_2018_5_2/04_40.mongo/dsgl_2001/
+</code></pre></li>
+<li><p>前提是存在可用的游戏服，修改对应服的server.config： server_no，serverid：为该服的server_id，及数据库导向</p>
+<pre><code>{server_no, 2001}.
+{serverid, [2001]}.
+{mongo_config,{&quot;192.168.1.6&quot;,27017,&quot;dsgl_2001&quot;,&quot;mongouser&quot;,&quot;8f10bb0e5bfb2743&quot;}}.
+</code></pre></li>
+<li><p>登陆数据库，修改服务器列表：</p>
+<pre><code># mysql -u root -h 192.168.1.44 -pminmin
+
+&gt; use dsgl_center;
+&gt; update all_server_info set server_id = 2001 where server_id = xx;（xx是可用游戏服的server_id）
+</code></pre></li>
+</ul>
+<pre><code>​
+</code></pre><h3 id="8-玩法中心服"><a href="#8-玩法中心服" class="headerlink" title="8. 玩法中心服"></a>8. 玩法中心服</h3><ul>
+<li><p>前提是这两个服都能作为游戏服正常启动</p>
+</li>
+<li><p>修改玩法中心服server.config：</p>
+<pre><code>{center_for_activity, true}.
+</code></pre></li>
+<li><p>修改游戏服使center_server_host和玩法中心服一致&lt;分别对应中心服的server.config的IP和端口&gt;：</p>
+<pre><code>{center_server_host, {&quot;192.168.1.40&quot;,20001}}. 
+{open_for_cross, true}.
+</code></pre></li>
+<li><p>注：win下启动中心服脚本使用scripts/win/center_server.bat，linux下启动查看scripts/unix/s</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/12/e7-bb-b4-e6-8a-a4-e6-96-87-e6-a1-a3/" data-id="cjokv5nnk000c44rjb4kxk2g6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/h5刷题/">h5刷题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js刷题/">js刷题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/16/你好-Hexo/">你好,Hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/14/leetcode-84-e6-9f-b1-e7-8a-b6-e5-9b-be-e4-b8-ad-e6-9c-80-e5-a4-a7-e7-9a-84-e7-9f-a9-e5-bd-a2/">leetcode 84 柱状图中最大的矩形</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/06/e5-a5-bd-e4-b9-85-e6-b2-a1-e5-86-99-e4-ba-86-ef-bc-8c-e7-bb-a7-e7-bb-ad-e5-8a-a0-e6-b2-b9/">好久没写了，继续加油</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/07/e5-b8-86-e5-8f-94-e7-89-9b-e9-80-bc/">帆叔牛逼</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/04/e5-be-ae-e4-bf-a1-e5-b0-8f-e6-b8-b8-e6-88-8f-e6-94-af-e4-bb-98-e6-8e-a5-e5-85-a5/">微信小游戏支付接入</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 teof<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

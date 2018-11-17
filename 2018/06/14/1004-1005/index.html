@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>1004-1005 | teof的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="5.【编程题】福尔摩斯的约会 (20)  题目描述 大侦探福尔摩斯接到一张奇怪的字条：“我们约会吧！ 3485djDkxh4hhGE 2984akDfkkkkggEdsb s&amp;amp;hgsfdk d&amp;amp;Hyscvnm”。大侦探很  快就明白了，字条上奇怪的乱码实际上就是约会的时间“星期四 14:04”，因为前面两字符串中第1对相同的大写英文字母（大小写有区分）是  第4个字母&amp;apos;">
+<meta name="keywords" content="erlang,html5,开发者,程序猿,编程,代码,开源">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1004-1005">
+<meta property="og:url" content="http://yoursite.com/2018/06/14/1004-1005/index.html">
+<meta property="og:site_name" content="teof的博客">
+<meta property="og:description" content="5.【编程题】福尔摩斯的约会 (20)  题目描述 大侦探福尔摩斯接到一张奇怪的字条：“我们约会吧！ 3485djDkxh4hhGE 2984akDfkkkkggEdsb s&amp;amp;hgsfdk d&amp;amp;Hyscvnm”。大侦探很  快就明白了，字条上奇怪的乱码实际上就是约会的时间“星期四 14:04”，因为前面两字符串中第1对相同的大写英文字母（大小写有区分）是  第4个字母&amp;apos;">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-16T16:06:02.025Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1004-1005">
+<meta name="twitter:description" content="5.【编程题】福尔摩斯的约会 (20)  题目描述 大侦探福尔摩斯接到一张奇怪的字条：“我们约会吧！ 3485djDkxh4hhGE 2984akDfkkkkggEdsb s&amp;amp;hgsfdk d&amp;amp;Hyscvnm”。大侦探很  快就明白了，字条上奇怪的乱码实际上就是约会的时间“星期四 14:04”，因为前面两字符串中第1对相同的大写英文字母（大小写有区分）是  第4个字母&amp;apos;">
+  
+    <link rel="alternate" href="/atom.xml" title="teof的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">teof的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不想继续废柴</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-1004-1005" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/14/1004-1005/" class="article-date">
+  <time datetime="2018-06-13T17:05:48.000Z" itemprop="datePublished">2018-06-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js刷题/">js刷题</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      1004-1005
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><strong>5.【编程题】福尔摩斯的约会 (20)</strong></li>
+</ul>
+<p>题目描述</p>
+<pre><code>大侦探福尔摩斯接到一张奇怪的字条：“我们约会吧！ 3485djDkxh4hhGE 2984akDfkkkkggEdsb s&amp;hgsfdk d&amp;Hyscvnm”。大侦探很
+
+快就明白了，字条上奇怪的乱码实际上就是约会的时间“星期四 14:04”，因为前面两字符串中第1对相同的大写英文字母（大小写有区分）是
+
+第4个字母&apos;D&apos;，代表星期四；第2对相同的字符是&apos;E&apos;，那是第5个英文字母，代表一天里的第14个钟头（于是一天的0点到23点由数字0到9、
+
+以及大写字母A到N表示）；后面两字符串第1对相同的英文字母&apos;s&apos;出现在第4个位置（从0开始计数）上，代表第4分钟。现给定两对字符串，
+
+请帮助福尔摩斯解码得到约会的时间。
+</code></pre><p>输入描述:</p>
+<pre><code>输入在4行中分别给出4个非空、不包含空格、且长度不超过60的字符串。
+</code></pre><p>输出描述:</p>
+<pre><code>在一行中输出约会的时间，格式为“DAY HH:MM”，其中“DAY”是某星期的3字符缩写，即MON表示星期一，TUE表示星期二，WED表示星期三，THU表示星期
+
+四，FRI表示星期五，SAT表示星期六，SUN表示星期日。题目输入保证每个测试存在唯一解。
+</code></pre><p>输入例子:</p>
+<pre><code>3485djDkxh4hhGE
+
+2984akDfkkkkggEdsb
+
+s&amp;hgsfdk
+
+d&amp;Hyscvnm
+</code></pre><p>输出例子:</p>
+<pre><code>THU 14:04
+</code></pre><p><strong>代码如下：</strong></p>
+<pre><code>//字符转ascii码：用charCodeAt();
+//ascii码砖字符：用fromCharCode();
+//大写字母A 到Z 的值是从65 到90;
+//小写a到z 是从91 到 122;
+
+var line1 = readline();
+var line2 = readline();
+var line3 = readline();
+var line4 = readline();
+
+var min_length1 = Math.min(line1.length, line2.length);
+var min_length2 = Math.min(line3.length, line4.length);
+
+var results = new Array(undefined, undefined, undefined);
+var cnt = 0;
+
+for(var j = 0; j &lt; min_length1; j++)
+{
+if(line1[j] == line2[j] &amp;&amp; line1[j] &gt;= &apos;A&apos; &amp;&amp; line1[j] &lt;= &apos;Z&apos;)
+{
+if(results[0] == undefined)
+results[0] = line1[j];
+}
+
+if(results[0] !== undefined &amp;&amp; line1[j] == line2[j] &amp;&amp; ((line1[j] &gt;= &apos;A&apos; &amp;&amp; line1[j] &lt;= &apos;Z&apos;) || (line1[j] &gt;= &apos;a&apos; &amp;&amp; line1[j] &lt;= &apos;z&apos;) || (line1[j] &gt;= &apos;0&apos; &amp;&amp; line1[j] &lt;= &apos;9&apos;)))
+{
+if(cnt == 1)
+results[1] = line1[j];
+cnt++;
+}
+}
+
+for(var j = 0; j &lt; min_length2; j++)
+{
+if(line3[j] == line4[j] &amp;&amp; ((line3[j] &gt;= &apos;A&apos; &amp;&amp; line3[j] &lt;= &apos;Z&apos;) || (line3[j] &gt;= &apos;a&apos; &amp;&amp; line3[j] &lt;= &apos;z&apos;)))
+{
+results[2] = j;
+break;
+}
+}
+
+var str1 = &quot;&quot;;
+switch (results[0])
+{
+case &apos;A&apos;: str1 += &quot;MON &quot;; break;
+case &apos;B&apos;: str1 += &quot;TUE &quot;; break;
+case &apos;C&apos;: str1 += &quot;WED &quot;; break;
+case &apos;D&apos;: str1 += &quot;THU &quot;; break;
+case &apos;E&apos;: str1 += &quot;FRI &quot;; break;
+case &apos;F&apos;: str1 += &quot;SAT &quot;; break;
+case &apos;G&apos;: str1 += &quot;SUN &quot;; break;
+}
+
+if(results[1] &gt;= &apos;A&apos; &amp;&amp; results[1] &lt;= &apos;N&apos;)
+{
+str1 += (results[1].charCodeAt(results[1]) - 65 + 10);
+}
+else if(results[1] &gt;= &apos;0&apos; &amp;&amp; results[1] &lt;= &apos;9&apos;)
+{
+str1 += &quot;0&quot; + results[1];
+}
+
+if(results[2] &lt; 10)
+str1 += &quot;:0&quot; + results[2];
+else
+str1 += &quot;:&quot; + results[2];
+
+console.log(str1);
+</code></pre><ul>
+<li><strong>5.【编程题】德才论 (25)</strong></li>
+</ul>
+<p>题目描述</p>
+<pre><code>宋代史学家司马光在《资治通鉴》中有一段著名的“德才论”：“是故才德全尽谓之圣人，才德兼亡谓之愚人，德胜才谓之君子，才胜德谓之
+
+小人。凡取人之术，苟不得圣人，君子而与之，与其得小人，不若得愚人。”
+
+现给出一批考生的德才分数，请根据司马光的理论给出录取排名。
+</code></pre><p>输入描述:</p>
+<pre><code>输入第1行给出3个正整数，分别为：N（&lt;=105），即考生总数；L（&gt;=60），为录取最低分数线，即德分和才分均不低于L的考生才有资格
+
+被考虑录取；H（&lt;100），为优先录取线——德分和才分均不低于此线的被定义为“才德全尽”，此类考生按德才总分从高到低排序；才分不到
+
+但德分到线的一类考生属于“德胜才”，也按总分排序，但排在第一类考生之后；德才分均低于H，但是德分不低于才分的考生属于“才德兼
+
+亡”但尚有“德胜才”者，按总分排序，但排在第二类考生之后；其他达到最低线L的考生也按总分排序，但排在第三类考生之后。
+
+随后N行，每行给出一位考生的信息，包括：准考证号、德分、才分，其中准考证号为8位整数，德才分为区间[0, 100]内的整数。数字间以空格分隔。
+</code></pre><p>输出描述:</p>
+<pre><code>输出第1行首先给出达到最低分数线的考生人数M，随后M行，每行按照输入格式输出一位考生的信息，考生按输入中说明的规则从高到低排序。当某类考生中有多人
+
+总分相同时，按其德分降序排列；若德分也并列，则按准考证号的升序输出。
+</code></pre><p>输入例子:</p>
+<pre><code>14 60 80
+
+10000001 64 90
+
+10000002 90 60
+
+10000011 85 80
+
+10000003 85 80
+
+10000004 80 85
+
+10000005 82 77
+
+10000006 83 76
+
+10000007 90 78
+
+10000008 75 79
+
+10000009 59 90
+
+10000010 88 45
+
+10000012 80 100
+
+10000013 90 99
+
+10000014 66 60
+</code></pre><p>输出例子:</p>
+<pre><code>12
+
+10000013 90 99
+
+10000012 80 100
+
+10000003 85 80
+
+10000011 85 80
+
+10000004 80 85
+
+10000007 90 78
+
+10000006 83 76
+
+10000005 82 77
+
+10000002 90 60
+
+10000014 66 60
+
+10000008 75 79
+
+10000001 64 90
+</code></pre><p><strong>代码如下：</strong></p>
+<pre><code>var head_line = readline();
+var head_lines = head_line.split(&apos; &apos;);
+
+var all_num = parseInt(head_lines[0]);
+var low = parseInt(head_lines[1]);
+var high = parseInt(head_lines[2]);
+
+//四档考生，先分完档再在每档内按规则排序
+var s1 = new Array();
+var s2 = new Array();
+var s3 = new Array();
+var s4 = new Array();
+
+while(line=readline())
+{
+var lines = line.split(&apos; &apos;);
+var stu_no = parseInt(lines[0]);
+var score_de = parseInt(lines[1]);
+var score_cai = parseInt(lines[2]);
+
+if(score_de &lt; low || score_cai &lt; low)
+continue;
+
+if(score_de &gt;= high &amp;&amp; score_cai &gt;= high)
+{
+s1.push({stu_no, score_de, score_cai});
+continue;
+}
+if(score_de &gt;= high &amp;&amp; score_cai &lt; high)
+{
+s2.push({stu_no, score_de, score_cai});
+continue;
+}
+if(score_de &lt; high &amp;&amp; score_cai &lt; high &amp;&amp; score_de &gt;= score_cai)
+{
+s3.push({stu_no, score_de, score_cai});
+continue;
+}
+s4.push({stu_no, score_de, score_cai})
+}
+
+//同档权值相同以后的后续比较规则
+var inner_rule = function ({stu_no1, score_de1, score_cai1}, {stu_no2, score_de2, score_cai2}) {
+if(score_de1 == score_de2)
+{
+if(stu_no1 &gt; stu_no2)
+return 1;
+else
+return -1
+}
+else if(score_de1 &gt; score_de2)
+return -1;
+else
+return 1;
+}
+
+//考生的内部排序规则
+var compare = function (x, y) {
+var stu_no1 = x[&quot;stu_no&quot;];
+var score_de1 = x[&quot;score_de&quot;];
+var score_cai1 = x[&quot;score_cai&quot;];
+var stu_no2 = y[&quot;stu_no&quot;];
+var score_de2 = y[&quot;score_de&quot;];
+var score_cai2 = y[&quot;score_cai&quot;];
+if (score_de1 + score_cai1 == score_de2 + score_cai2) {
+return inner_rule({stu_no1, score_de1, score_cai1}, {stu_no2, score_de2, score_cai2});
+} else if (score_de1 + score_cai1 &gt; score_de2 + score_cai2) {
+return -1;
+} else {
+return 1;
+}
+}
+
+s1 = s1.sort(compare);
+s2 = s2.sort(compare);
+s3 = s3.sort(compare);
+s4 = s4.sort(compare);
+
+var result = s1.concat(s2);
+result = result.concat(s3);
+result = result.concat(s4);
+
+console.log(result.length);
+
+for(var i = 0; i &lt; result.length; i++)
+{
+console.log(result[i][&quot;stu_no&quot;] + &quot; &quot; + result[i][&quot;score_de&quot;] + &quot; &quot; + result[i][&quot;score_cai&quot;])
+}
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/14/1004-1005/" data-id="cjokv5nn4000144rjrh4tcmfv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/06/14/1006-1009/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          1006-1009
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/13/1000-1003/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">1000-1003</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/h5刷题/">h5刷题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js刷题/">js刷题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/16/你好-Hexo/">你好,Hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/14/leetcode-84-e6-9f-b1-e7-8a-b6-e5-9b-be-e4-b8-ad-e6-9c-80-e5-a4-a7-e7-9a-84-e7-9f-a9-e5-bd-a2/">leetcode 84 柱状图中最大的矩形</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/06/e5-a5-bd-e4-b9-85-e6-b2-a1-e5-86-99-e4-ba-86-ef-bc-8c-e7-bb-a7-e7-bb-ad-e5-8a-a0-e6-b2-b9/">好久没写了，继续加油</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/07/e5-b8-86-e5-8f-94-e7-89-9b-e9-80-bc/">帆叔牛逼</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/04/e5-be-ae-e4-bf-a1-e5-b0-8f-e6-b8-b8-e6-88-8f-e6-94-af-e4-bb-98-e6-8e-a5-e5-85-a5/">微信小游戏支付接入</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 teof<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>微信小游戏支付接入 | teof的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="项目赶进度，今天帮后端同事接入微信小游戏的支付。下午花了俩小时确定了小程序支付的流程，告诉了前端下一步怎么做，用什么接口。吃晚饭的时候还琢磨着能不能一两天搞定。 晚上回到公司加班得到前端给来的震惊消息。原来那个接口不存在，查询报错的时候发现我错误的使用了小程序那一套的微信支付接入。应该是要用米大师虚拟支付来接。。。 第一反应当然是遍历官网相关资料，结果发现还真是。这尼玛不得不吐槽腾讯的分类，一下午">
+<meta name="keywords" content="erlang,html5,开发者,程序猿,编程,代码,开源">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小游戏支付接入">
+<meta property="og:url" content="http://yoursite.com/2018/07/04/e5-be-ae-e4-bf-a1-e5-b0-8f-e6-b8-b8-e6-88-8f-e6-94-af-e4-bb-98-e6-8e-a5-e5-85-a5/index.html">
+<meta property="og:site_name" content="teof的博客">
+<meta property="og:description" content="项目赶进度，今天帮后端同事接入微信小游戏的支付。下午花了俩小时确定了小程序支付的流程，告诉了前端下一步怎么做，用什么接口。吃晚饭的时候还琢磨着能不能一两天搞定。 晚上回到公司加班得到前端给来的震惊消息。原来那个接口不存在，查询报错的时候发现我错误的使用了小程序那一套的微信支付接入。应该是要用米大师虚拟支付来接。。。 第一反应当然是遍历官网相关资料，结果发现还真是。这尼玛不得不吐槽腾讯的分类，一下午">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-16T16:06:02.025Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微信小游戏支付接入">
+<meta name="twitter:description" content="项目赶进度，今天帮后端同事接入微信小游戏的支付。下午花了俩小时确定了小程序支付的流程，告诉了前端下一步怎么做，用什么接口。吃晚饭的时候还琢磨着能不能一两天搞定。 晚上回到公司加班得到前端给来的震惊消息。原来那个接口不存在，查询报错的时候发现我错误的使用了小程序那一套的微信支付接入。应该是要用米大师虚拟支付来接。。。 第一反应当然是遍历官网相关资料，结果发现还真是。这尼玛不得不吐槽腾讯的分类，一下午">
+  
+    <link rel="alternate" href="/atom.xml" title="teof的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">teof的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不想继续废柴</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-e5-be-ae-e4-bf-a1-e5-b0-8f-e6-b8-b8-e6-88-8f-e6-94-af-e4-bb-98-e6-8e-a5-e5-85-a5" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/04/e5-be-ae-e4-bf-a1-e5-b0-8f-e6-b8-b8-e6-88-8f-e6-94-af-e4-bb-98-e6-8e-a5-e5-85-a5/" class="article-date">
+  <time datetime="2018-07-04T15:48:58.000Z" itemprop="datePublished">2018-07-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Uncategorized/">Uncategorized</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      微信小游戏支付接入
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>项目赶进度，今天帮后端同事接入微信小游戏的支付。下午花了俩小时确定了小程序支付的流程，告诉了前端下一步怎么做，用什么接口。吃晚饭的时候还琢磨着能不能一两天搞定。 晚上回到公司加班得到前端给来的震惊消息。原来那个接口不存在，查询报错的时候发现我错误的使用了小程序那一套的微信支付接入。应该是要用米大师虚拟支付来接。。。 第一反应当然是遍历官网相关资料，结果发现还真是。这尼玛不得不吐槽腾讯的分类，一下午的各种支付文档扫描、申请资料的时候真没发现和米大师虚拟支付有啥关系。新的支付套路晚上加班走起~~~结果呵呵哒。文档有多套，然后流程是来来回回，卡住了就回到前一套去理解。。。。。。走之前还行，看的马马虎虎，阿弥托福。   过程中还发生了一件趣事。设置操作密码，恩，输入了英文和数字，ok。然后，然后，在最后面输入操作密码确定xx操作的权限时，提示我操作密码不正确，被前端拦截了，呵呵，两个地方的检验方法不一致。。。只得重置密码，老板各种扫码以后，finish。。。呵呵。   另外Erlang的Otp20.3版本的ssl源码库有bug，影响了接入。升级到最新版本即可。让我回想起来了当年Erlang的R15A有史诗级的大bug，当时我修都修不过来，只能回退版本。现在去<a href="http://www.erlang.org/downloads一看，发现下架了这个版本。呵呵" target="_blank" rel="noopener">http://www.erlang.org/downloads一看，发现下架了这个版本。呵呵</a>~</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/04/e5-be-ae-e4-bf-a1-e5-b0-8f-e6-b8-b8-e6-88-8f-e6-94-af-e4-bb-98-e6-8e-a5-e5-85-a5/" data-id="cjokv5nnk000844rjbe9tnljc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/07/e5-b8-86-e5-8f-94-e7-89-9b-e9-80-bc/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          帆叔牛逼
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/29/e6-96-b0-e9-a1-b9-e7-9b-ae-e8-bf-9b-e5-b1-95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">新项目进展</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/h5刷题/">h5刷题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js刷题/">js刷题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/16/你好-Hexo/">你好,Hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/14/leetcode-84-e6-9f-b1-e7-8a-b6-e5-9b-be-e4-b8-ad-e6-9c-80-e5-a4-a7-e7-9a-84-e7-9f-a9-e5-bd-a2/">leetcode 84 柱状图中最大的矩形</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/06/e5-a5-bd-e4-b9-85-e6-b2-a1-e5-86-99-e4-ba-86-ef-bc-8c-e7-bb-a7-e7-bb-ad-e5-8a-a0-e6-b2-b9/">好久没写了，继续加油</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/07/e5-b8-86-e5-8f-94-e7-89-9b-e9-80-bc/">帆叔牛逼</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/04/e5-be-ae-e4-bf-a1-e5-b0-8f-e6-b8-b8-e6-88-8f-e6-94-af-e4-bb-98-e6-8e-a5-e5-85-a5/">微信小游戏支付接入</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 teof<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

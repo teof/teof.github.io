@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>1000-1003 | teof的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="##刷题 JavaScript(V8.6.0.0)  题目网站：https://www.nowcoder.com/pat/6/problems  本人在nodejs环境下自测，你也可以选择 在线自测网站：http://www.webtoolkitonline.com/javascript-tester.html  美化/净化/加密/解密/混淆网站：https://tool.lu/js/  作为js">
+<meta name="keywords" content="erlang,html5,开发者,程序猿,编程,代码,开源">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1000-1003">
+<meta property="og:url" content="http://yoursite.com/2018/06/13/1000-1003/index.html">
+<meta property="og:site_name" content="teof的博客">
+<meta property="og:description" content="##刷题 JavaScript(V8.6.0.0)  题目网站：https://www.nowcoder.com/pat/6/problems  本人在nodejs环境下自测，你也可以选择 在线自测网站：http://www.webtoolkitonline.com/javascript-tester.html  美化/净化/加密/解密/混淆网站：https://tool.lu/js/  作为js">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-17T03:41:42.051Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1000-1003">
+<meta name="twitter:description" content="##刷题 JavaScript(V8.6.0.0)  题目网站：https://www.nowcoder.com/pat/6/problems  本人在nodejs环境下自测，你也可以选择 在线自测网站：http://www.webtoolkitonline.com/javascript-tester.html  美化/净化/加密/解密/混淆网站：https://tool.lu/js/  作为js">
+  
+    <link rel="alternate" href="/atom.xml" title="teof的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">teof的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不想继续废柴</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-1000-1003" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/13/1000-1003/" class="article-date">
+  <time datetime="2018-06-12T16:23:54.000Z" itemprop="datePublished">2018-06-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js刷题/">js刷题</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      1000-1003
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##刷题 JavaScript(V8.6.0.0) </p>
+<p>题目网站：<a href="https://www.nowcoder.com/pat/6/problems" target="_blank" rel="noopener">https://www.nowcoder.com/pat/6/problems</a> </p>
+<p>本人在nodejs环境下自测，你也可以选择 在线自测网站：<a href="http://www.webtoolkitonline.com/javascript-tester.html" target="_blank" rel="noopener">http://www.webtoolkitonline.com/javascript-tester.html</a> </p>
+<p>美化/净化/加密/解密/混淆网站：<a href="https://tool.lu/js/" target="_blank" rel="noopener">https://tool.lu/js/</a> </p>
+<p>作为js新人，书都还没看完。前两题一次秒过，试了试手，继续加油。</p>
+<ul>
+<li><strong>1.【编程题】a+b</strong></li>
+</ul>
+<p>问题描述：</p>
+<pre><code>计算a+b的和
+
+每行包行两个整数a和b
+
+对于每行输入对应输出一行a和b的和
+</code></pre><p>输入</p>
+<pre><code>1 5
+</code></pre><p>输出</p>
+<pre><code>6
+</code></pre><p><strong>代码如下：</strong></p>
+<pre><code>while(line=readline()){
+    var lines = line.split(&apos; &apos;);
+    var a = parseInt(lines[0]);
+    var b = parseInt(lines[1]);
+    print(a+b);
+}
+</code></pre><ul>
+<li><strong>2.【编程题】A+B和C (15)</strong></li>
+</ul>
+<p>题目描述</p>
+<pre><code>给定区间[-2的31次方, 2的31次方]内的3个整数A、B和C，请判断A+B是否大于C。
+</code></pre><p>输入描述:</p>
+<pre><code>输入第1行给出正整数T(&lt;=10)，是测试用例的个数。随后给出T组测试用例，每组占一行，顺序给出A、B和C。整数间以空格分隔。
+</code></pre><p>输出描述:</p>
+<pre><code>对每组测试用例，在一行中输出“Case #X: true”如果A+B&gt;C，否则输出“Case #X: false”，其中X是测试用例的编号（从1开始）。
+</code></pre><p>输入例子:</p>
+<pre><code>4
+
+1 2 3
+
+2 3 4
+
+2147483647 0 2147483646
+
+0 -2147483648 -2147483647
+</code></pre><p>输出例子:</p>
+<pre><code>Case #1: false
+
+Case #2: true
+
+Case #3: true
+
+Case #4: false
+</code></pre><p><strong>代码如下：</strong></p>
+<pre><code>var startNum = parseInt(readline());
+var count = 1;
+
+while(line=readline()){
+    var lines = line.split(&apos; &apos;);
+    var a = parseInt(lines[0]);
+    var b = parseInt(lines[1]);
+    var c = parseInt(lines[2]);
+    print(&quot;Case #&quot; + count + &quot;: &quot; + (a + b &gt; c));
+    count ++;
+}
+</code></pre><ul>
+<li><strong>3.【编程题】数字分类 (20)</strong></li>
+</ul>
+<p>题目描述</p>
+<pre><code>给定一系列正整数，请按要求对数字进行分类，并输出以下5个数字：
+</code></pre><p>​<br>​<br>    A1 = 能被5整除的数字中所有偶数的和；</p>
+<pre><code>A2 = 将被5除后余1的数字按给出顺序进行交错求和，即计算n1-n2+n3-n4...；
+
+A3 = 被5除后余2的数字的个数；
+
+A4 = 被5除后余3的数字的平均数，精确到小数点后1位；
+
+A5 = 被5除后余4的数字中最大数字。
+</code></pre><p>输入描述:</p>
+<pre><code>每个输入包含1个测试用例。每个测试用例先给出一个不超过1000的正整数N，随后给出N个不超过1000的待分类的正整数。数字间以空格分隔。
+</code></pre><p>输出描述:</p>
+<pre><code>对给定的N个正整数，按题目要求计算A1~A5并在一行中顺序输出。数字间以空格分隔，但行末不得有多余空格。
+
+若其中某一类数字不存在，则在相应位置输出“N”。
+</code></pre><p>输入例子:</p>
+<pre><code>13 1 2 3 4 5 6 7 8 9 10 20 16 18
+</code></pre><p>输出例子:</p>
+<pre><code>30 11 2 9.7 9
+</code></pre><p><strong>代码如下：</strong></p>
+<pre><code>var line = readline();
+var lines = line.split(&apos; &apos;);
+var num = parseInt(lines[0]);
+
+var a1_sum = &quot;N&quot;;
+
+var a2_sum = &quot;N&quot;;
+var a2_postive = true;  //a2计算是否是正数，true取+，false取-
+
+var a3_cnt = &quot;N&quot;;
+
+var a4_sum = &quot;N&quot;;
+var a4_cnt = 0;
+
+var a5_max = &quot;N&quot;;
+
+var length = lines.length;
+for(var i = 1; i &lt; length; i++)
+{
+    var value = parseInt(lines[i]);
+    switch (value % 5)
+    {
+        case 0:
+            if(value % 2 == 0)
+            {
+                if(a1_sum == &quot;N&quot;)
+                    a1_sum = value;
+                else
+                    a1_sum += value;
+            }
+            break;
+        case 1:
+            if(a2_sum == &quot;N&quot;)
+                a2_sum = 0;
+            if(a2_postive)
+                a2_sum += value;
+            else
+                a2_sum -= value;
+            a2_postive = !a2_postive;
+            break;
+        case 2:
+            if(a3_cnt == &quot;N&quot;)
+                a3_cnt = 0;
+            a3_cnt++;
+            break;
+        case 3:
+            if(a4_sum == &quot;N&quot;)
+                a4_sum = 0;
+            a4_sum += value;
+            a4_cnt++;
+            break;
+        case 4:
+            if(a5_max == &quot;N&quot;)
+                a5_max = value;
+            else
+                a5_max = Math.max(a5_max, value);
+            break;
+    }
+}
+
+//强制保留2额外小数，即527.0显示为527.0而不是527。
+//如果不需要强制保留的话直接Math.round(x*100)/100;即可
+function toDecimal2(x) {
+    var f = parseFloat(x);
+    var f = Math.round(x*10)/10;
+    var s = f.toString();
+    var rs = s.indexOf(&apos;.&apos;);
+    if (rs &lt; 0) {
+        rs = s.length;
+        s += &apos;.&apos;;
+    }
+    while (s.length &lt;= rs + 1) {
+        s += &apos;0&apos;;
+    }
+    return s;
+}
+
+var a4_result = &quot;N&quot;;
+if(a4_sum !== &quot;N&quot;)
+    a4_result = toDecimal2(a4_sum / a4_cnt);
+
+console.log(a1_sum + &quot; &quot; + a2_sum + &quot; &quot; + a3_cnt + &quot; &quot; + a4_result + &quot; &quot; + a5_max);
+</code></pre><ul>
+<li><strong>4.【编程题】数素数 (20)</strong></li>
+</ul>
+<p>题目描述</p>
+<pre><code>令Pi表示第i个素数。现任给两个正整数M &lt;= N &lt;= 10000，请输出PM到PN的所有素数。
+</code></pre><p>​    </p>
+<p>输入描述:</p>
+<pre><code>输入在一行中给出M和N，其间以空格分隔。
+</code></pre><p>输出描述:</p>
+<pre><code>输出从PM到PN的所有素数，每10个数字占1行，其间以空格分隔，但行末不得有多余空格。
+</code></pre><p>输入例子:</p>
+<pre><code>5 27
+</code></pre><p>输出例子:</p>
+<pre><code>11 13 17 19 23 29 31 37 41 43
+
+47 53 59 61 67 71 73 79 83 89
+
+97 101 103
+</code></pre><p><strong>代码如下：</strong></p>
+<pre><code>var line = readline();
+var lines = line.split(&apos; &apos;);
+var m = parseInt(lines[0]);
+var n = parseInt(lines[1]);
+
+var results = new Array();
+var idx = 0;
+var get_result = false;
+var cur_num = 2;
+
+while (!get_result)
+{
+    if(judgePrime(cur_num)) {
+        idx++;
+
+        if (idx &gt;= m)
+            results[results.length] = cur_num;
+
+        if (idx == n)
+            get_result = true;
+    }
+
+    cur_num ++;
+}
+
+//判断x是否为素数,只处理x为整数的情况
+function judgePrime(x) {
+    if(x &lt; 2)
+        return false;
+    for(var i = 2; i &lt;= Math.sqrt(x); i ++)
+    {
+        if ((x % i) == 0)
+            return false;
+    }
+    return true;
+}
+
+var strline = &quot;&quot;;
+for(var j = 0; j &lt; results.length; j++)
+{
+    if(j % 10 == 0)
+        strline = results[j];
+    else
+        strline += &quot; &quot; + results[j];
+    if(j % 10 == 9)
+    {
+        console.log(strline);
+        strline = &quot;&quot;;
+    }
+}
+if(strline !== &quot;&quot;)
+    console.log(strline);
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/13/1000-1003/" data-id="cjokv5nn4000044rj92v4yo4u" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/06/14/1004-1005/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          1004-1005
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/05/25/e7-bc-85-e6-80-80/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">缅怀</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/h5刷题/">h5刷题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js刷题/">js刷题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/16/你好-Hexo/">你好,Hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/14/leetcode-84-e6-9f-b1-e7-8a-b6-e5-9b-be-e4-b8-ad-e6-9c-80-e5-a4-a7-e7-9a-84-e7-9f-a9-e5-bd-a2/">leetcode 84 柱状图中最大的矩形</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/06/e5-a5-bd-e4-b9-85-e6-b2-a1-e5-86-99-e4-ba-86-ef-bc-8c-e7-bb-a7-e7-bb-ad-e5-8a-a0-e6-b2-b9/">好久没写了，继续加油</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/07/e5-b8-86-e5-8f-94-e7-89-9b-e9-80-bc/">帆叔牛逼</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/04/e5-be-ae-e4-bf-a1-e5-b0-8f-e6-b8-b8-e6-88-8f-e6-94-af-e4-bb-98-e6-8e-a5-e5-85-a5/">微信小游戏支付接入</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 teof<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
