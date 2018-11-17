@@ -7,18 +7,18 @@
   
   <title>你好,Hexo | teof的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="从WordPress转到Hexo。写一篇博客吧，内容想了想，写个erlang通用服务器。">
+  <meta name="description" content="从WordPress转到Hexo。写一篇博客吧，内容想了想，写个erlang通用服务器。 erlang的魔力：生成一套可替换的通用服务器框架。可以把机房全部署上，然后使用你的计算服务，例如挖比特币。即可一直工作，呵呵。注意：还可以进行热更新不停服替换新的计算服务。所有功能仅需40行代码，如下： 1234567891011121314151617181920212223242526272829303">
 <meta name="keywords" content="erlang,html5,开发者,程序猿,编程,代码,开源">
 <meta property="og:type" content="article">
 <meta property="og:title" content="你好,Hexo">
 <meta property="og:url" content="http://yoursite.com/2018/11/16/你好-Hexo/index.html">
 <meta property="og:site_name" content="teof的博客">
-<meta property="og:description" content="从WordPress转到Hexo。写一篇博客吧，内容想了想，写个erlang通用服务器。">
+<meta property="og:description" content="从WordPress转到Hexo。写一篇博客吧，内容想了想，写个erlang通用服务器。 erlang的魔力：生成一套可替换的通用服务器框架。可以把机房全部署上，然后使用你的计算服务，例如挖比特币。即可一直工作，呵呵。注意：还可以进行热更新不停服替换新的计算服务。所有功能仅需40行代码，如下： 1234567891011121314151617181920212223242526272829303">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-17T03:39:22.135Z">
+<meta property="og:updated_time" content="2018-11-17T06:27:45.693Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你好,Hexo">
-<meta name="twitter:description" content="从WordPress转到Hexo。写一篇博客吧，内容想了想，写个erlang通用服务器。">
+<meta name="twitter:description" content="从WordPress转到Hexo。写一篇博客吧，内容想了想，写个erlang通用服务器。 erlang的魔力：生成一套可替换的通用服务器框架。可以把机房全部署上，然后使用你的计算服务，例如挖比特币。即可一直工作，呵呵。注意：还可以进行热更新不停服替换新的计算服务。所有功能仅需40行代码，如下： 1234567891011121314151617181920212223242526272829303">
   
     <link rel="alternate" href="/atom.xml" title="teof的博客" type="application/atom+xml">
   
@@ -75,6 +75,10 @@
   <time datetime="2018-11-16T15:19:56.000Z" itemprop="datePublished">2018-11-16</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/erlang/">erlang</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -92,6 +96,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>从WordPress转到Hexo。写一篇博客吧，内容想了想，写个erlang通用服务器。</p>
+<p>erlang的魔力：生成一套可替换的通用服务器框架。可以把机房全部署上，然后使用你的计算服务，例如挖比特币。即可一直工作，呵呵。注意：还可以进行热更新不停服替换新的计算服务。所有功能仅需40行代码，如下：</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">-module</span><span class="params">(test)</span>.</span><br><span class="line"><span class="keyword">-export</span><span class="params">([common_server/<span class="number">0</span>, factorial_server/<span class="number">0</span>, become/<span class="number">1</span>, test/<span class="number">1</span>])</span>.</span><br><span class="line"></span><br><span class="line"><span class="comment">%通用服务器</span></span><br><span class="line"><span class="function"><span class="title">common_server</span><span class="params">()</span> -&gt;</span></span><br><span class="line">    <span class="keyword">receive</span></span><br><span class="line">        &#123;become, F&#125; -&gt;</span><br><span class="line">            <span class="keyword">case</span> get(s_server) <span class="keyword">of</span></span><br><span class="line">                undefined -&gt; nil;</span><br><span class="line">                OldPid -&gt; OldPid ! &#123;close&#125;</span><br><span class="line">            <span class="keyword">end</span>,</span><br><span class="line">            Pid = spawn(<span class="keyword">fun</span> () -&gt; F() <span class="keyword">end</span>),</span><br><span class="line">            put(s_server, Pid),</span><br><span class="line">            common_server();</span><br><span class="line">        OtherData -&gt;</span><br><span class="line">            <span class="keyword">case</span> get(s_server) <span class="keyword">of</span></span><br><span class="line">                 undefined -&gt; nil;</span><br><span class="line">                 OldPid -&gt; OldPid ! OtherData</span><br><span class="line">             <span class="keyword">end</span>,</span><br><span class="line">    <span class="keyword">end</span>.</span><br><span class="line"></span><br><span class="line"><span class="comment">%可替换的计算服务器</span></span><br><span class="line"><span class="function"><span class="title">factorial_server</span><span class="params">()</span> -&gt;</span></span><br><span class="line">    <span class="keyword">receive</span></span><br><span class="line">        &#123;From, N&#125; -&gt;</span><br><span class="line">            From ! factorial(N),</span><br><span class="line">            factorial_server();</span><br><span class="line">        &#123;close&#125; -&gt; close</span><br><span class="line">    <span class="keyword">end</span>.</span><br><span class="line"><span class="function"><span class="title">factorial</span><span class="params">(<span class="number">0</span>)</span> -&gt;</span></span><br><span class="line">    <span class="number">1</span>;  </span><br><span class="line"><span class="function"><span class="title">factorial</span><span class="params">(N)</span> -&gt;</span> N * factorial(N-<span class="number">1</span>).</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">become</span><span class="params">(F)</span> -&gt;</span></span><br><span class="line">    Pid = spawn(fun common_server/0), </span><br><span class="line">    Pid ! &#123;become, F&#125;, </span><br><span class="line">    Pid.</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">test</span><span class="params">(Pid)</span> -&gt;</span></span><br><span class="line">    Pid ! &#123;self(), <span class="number">50</span>&#125;,</span><br><span class="line">    <span class="keyword">receive</span></span><br><span class="line">        X -&gt; X</span><br><span class="line">    <span class="keyword">end</span>.</span><br></pre></td></tr></table></figure>
+<p>测试：<br><figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>&gt; Pid = test:become(<span class="keyword">fun</span> test:factorial_server/<span class="number">0</span>).</span><br><span class="line">&lt;<span class="number">0.36</span>.<span class="number">0</span>&gt;</span><br><span class="line"><span class="number">2</span>&gt; test:test(Pid).</span><br><span class="line"><span class="number">30414093201713378043612608166064768844377641568960512000000000000</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -124,7 +131,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/h5刷题/">h5刷题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js刷题/">js刷题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/h5刷题/">h5刷题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js刷题/">js刷题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li></ul>
     </div>
   </div>
 
