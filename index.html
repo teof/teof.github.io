@@ -66,6 +66,141 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-egret3d开源项目初探" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/25/egret3d开源项目初探/" class="article-date">
+  <time datetime="2018-11-25T15:39:05.000Z" itemprop="datePublished">2018-11-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/3d-engine/">3d engine</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/25/egret3d开源项目初探/">egret3d开源项目初探</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="背景知识："><a href="#背景知识：" class="headerlink" title="背景知识："></a>背景知识：</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;以前写过格斗猎人的2D战斗逻辑引擎，算是极其简单的2D逻辑了，真实逻辑大概也就几百上千行。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;而这个3D引擎目前才开发到1.3版本，很多功能还没有实现，就有2、3w行代码了。3D引擎复杂程度果然是最难等级的，更别提后续可能的各种图形学新技术新优化，都加上以后感觉这个项目奔着10w行js代码去了。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;看了一段时间，结合之前对于渲染的简单了解，有点心得，记录一下。未来的道路还很漫长，继续加油。</p>
+<h4 id="egret3d引擎周边："><a href="#egret3d引擎周边：" class="headerlink" title="egret3d引擎周边："></a>egret3d引擎周边：</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;egret3d引擎可以理解为两个大的部分，一部分是浏览器提供的webgl api调用opengl的渲染部分；另外一部分则是这个开源库所实现的3d引擎逻辑功能部分，这部分egret引擎组将其设计为两块，分别包装在egret3d和paper两个命名空间中。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;【<strong>egret3d 命名空间</strong>用于处理三维游戏相关内容，包含模型、纹理、材质、灯光、碰撞等常用功能。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>paper 命名空间</strong>用于实现与具体游戏引擎（无论是2D 或 3D）无关的组件实体系统框架，用于维护对象的生命周期以及开发模型。】</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;宏观来看设计非常清晰，和整个现有的egret框架是一个逐渐融合的关系。非常支持这种商业化技术理念，既独立开来以保障快速开发，又在宏观层面和现有系统建立联系。接下去就是项目组的一个快速迭代的实践过程。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;egret采用了Typescript语言作为主语言。ts是微软所写，看着就像是C#进化版，呵呵。关于ts语言的设计初衷，我非常理解，动态脚本语言（js）设计大型项目的缺点很多，必须要用好的外围工具来约束它，统筹规划它。这样才能在不断地开发维护中保证项目的可控性、可维护性。比如我们公司全lua的unity3d项目，我就明确要求了一点，当你使用lua的目的不再只是修bug，热更新，而是作为整个项目的主要语言时，它的灵活可能就是缺点，需要用明确的规则/工具管控起来。</p>
+<h4 id="egret3d引擎初探："><a href="#egret3d引擎初探：" class="headerlink" title="egret3d引擎初探："></a>egret3d引擎初探：</h4><h5 id="入口和运行时："><a href="#入口和运行时：" class="headerlink" title="入口和运行时："></a>入口和运行时：</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index.html中调用egret3d.runEgret，进入RunEgret.ts模块的runEgret方法。引擎启动了。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在整个运行时，主要是ECS：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Entity 实体</strong>：BaseObject，GameObject、Asset、Scene、BaseComponent等</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Component 组件</strong>：BaseComponent，一个组件实现一方面的功能，包含数据</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>System 系统</strong>：BaseSystem，一个生命周期系统处理该生命周期的所有脚本和组件的数据，其他功能系统类</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此ECS非Unity2018中提到的能大幅优化并发性能、增加Cache命中的ECS（反正js都是单线程 <a href="https://segmentfault.com/a/1190000012925872" target="_blank" rel="noopener">h5开发必看</a>）。但是概念上比较接近。通过各个单例管理类维护状态数据，各个组件“组成”功能，各个系统进行各方面功能的调度。完成了3d引擎的几乎所有功能部分。</p>
+<h5 id="egret3d项目结构分析："><a href="#egret3d项目结构分析：" class="headerlink" title="egret3d项目结构分析："></a>egret3d项目结构分析：</h5><p>图片看不了的点击链接：<a href="https://imgchr.com/i/FA9TLq" target="_blank" rel="noopener">egret3d文件夹结构</a></p>
+<p><img src="image/egret3d文件夹结构.png" alt="egret3d文件夹结构"></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;asset:资源定义，如Mesh、Material、Texture、Shader、GLTF。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;components：各个实际的功能，animation、audio、camera、collision、Egret2DRenderer、light、MeshFilter、MeshRenderer、particles、singletons、SkinnedMeshRenderer、Transform。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;esc：如上述分析。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;editor:编辑器功能，和以前看过U3d实现编辑器的设计类似，实现undo、redo、serialize、deserialize这几个主要接口。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;math：实现了3D引擎的各种数学库，以后碰到类似的疑惑可以回来参考。</p>
+<p>PS：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GameObject的全局单例组件管理值得借鉴，采取的单例基类的应用方式下次自己试试。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;常见的处理流程：单例组件类Component先收集待处理实体，最后再由对应的System统一处理。</p>
+<p>egret3d引擎的脚本组件及生命周期顺序如下：</p>
+<p>​     * 脚本组件。</p>
+<p>​     * 生命周期的顺序。</p>
+<p>​     * - onAwake();    //组件被初始化时调用。在整个生命周期中只执行一次。</p>
+<p>​     * - onReset();</p>
+<p>​     * - onEnable();    //组件被激活或实体被激活时调用。</p>
+<p>​     * - onStart();    //组件开始运行时调用。在整个生命周期中只执行一次。</p>
+<p>​     * - onFixedUpdate();</p>
+<p>​     * - onUpdate();    //程序每帧调用。</p>
+<p>​     * - onLateUpdate();    //程序每帧调用。</p>
+<p>​     * - onDisable();    //组件被禁用或实体被禁用时调用。</p>
+<p>​     * - onDestroy();</p>
+<h5 id="个别名词解释："><a href="#个别名词解释：" class="headerlink" title="个别名词解释："></a>个别名词解释：</h5><p>WebGL：通过浏览器提供的接口，直接和底层的OpenGL库打交道。</p>
+<p>GLTF：3D图形界的JPEG，2015年10月发布，面向实时渲染应用的，尽量提供可以直接传输给图形API的数据形式，不再需要二次转换。</p>
+<p>WebAssembly：是一种新的适合于编译到Web的，可移植的，大小和加载时间高效的格式，是一种新的字节码格式。可用它将大型的C和C++代码库比如游戏、物理引擎甚至是桌面应用程序导入Web平台。<a href="https://bellard.org/jslinux/vm.html?url=https://bellard.org/jslinux/win2k.cfg&amp;mem=192&amp;graphic=1&amp;w=1024&amp;h=768" target="_blank" rel="noopener">windows 2000通过WebAssembly编译</a></p>
+<h5 id="展望与总结："><a href="#展望与总结：" class="headerlink" title="展望与总结："></a>展望与总结：</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;多嘴一句，egret引擎组主体全是基于Typescript语言开发，c层面的东西很少，这样的隐患就是完全把性能交给了js语言。万幸最近这些年webgl、gltf、webassembly等等提高性能的技术不断出现。个人认为接下去egret的性能命脉就彻底交到了webassembly手中，这个技术到底能发展成啥样，工业化到什么程度呢，拭目以待。egret、cocos、laya到底谁会胜出？还是以后可能入场的底蕴深厚的腾讯、网易呢？我不知道答案啊，但是有鹅选鹅，有猪选猪，总不会错。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对3d引擎的构成有了个简单的了解，对以前计算机图形学课程的理解又深刻了不少，呵呵，以后继续参考其他开源3d引擎的实现。多理解其他大牛已有的实践工作，尽快应用于实际项目中。多看多学多练。另外对于初学者，强烈推荐《Unity Shader入门精要》。</p>
+<h4 id="随想（胡言乱语，可略）："><a href="#随想（胡言乱语，可略）：" class="headerlink" title="随想（胡言乱语，可略）："></a>随想（胡言乱语，可略）：</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果是我来主导h5的3d引擎开发，我会怎么快速开发出这几万行代码呢？</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0、支持webgl的浏览器以便实测，熟悉webgl的api接口，阅读理解《游戏引擎架构》、《Unity Shader入门精要》，参考市面上成熟的开源3d引擎项目。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、尽快写出最初版的3d最小原型，自测通过。最小原型实现以下功能：基本数学库、网格、材质、贴图、默认Shader。读取3d数据，调用webgl，可在浏览器上展示3d效果。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、在最小原型的基础上开始确定架构图，各个模块之间的关联。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3、并行开发完善各个模块，各自自测，引入测试，测试所用的3D数据可以先通过其他工具生成。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4、最后处理各种额外功能、3D编辑器、性能优化等。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/25/egret3d开源项目初探/" data-id="cjox56qb20000fsrjktdo5qg0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-leetcode-4-寻找两个有序数组的中位数" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/20/leetcode-4-寻找两个有序数组的中位数/" class="article-date">
+  <time datetime="2018-11-20T15:19:56.000Z" itemprop="datePublished">2018-11-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/h5刷题/">h5刷题</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/20/leetcode-4-寻找两个有序数组的中位数/">leetcode 84 寻找两个有序数组的中位数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h4><p>给定两个大小为 m 和 n 的有序数组 <code>nums1</code> 和 <code>nums2</code>。</p>
+<p>请你找出这两个有序数组的中位数，并且要求算法的时间复杂度为 O(log(m + n))。</p>
+<p>你可以假设 <code>nums1</code> 和 <code>nums2</code> 不会同时为空。</p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 3]</span><br><span class="line">nums2 = [2]</span><br><span class="line"></span><br><span class="line">则中位数是 2.0</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nums1 = [1, 2]</span><br><span class="line">nums2 = [3, 4]</span><br><span class="line"></span><br><span class="line">则中位数是 (2 + 3)/2 = 2.5</span><br></pre></td></tr></table></figure>
+<h4 id="解："><a href="#解：" class="headerlink" title="解："></a>解：</h4><p>一看到算法实际复杂度为O（log n）这样形式的， 下意识的就会想到二分处理的相关算法。本题亦是如此，思路是获取到A数组的i分割线，以及B数组的j分割线，保证左边的和右边的数量接近相等，并且左边的最大值小于右边的最小值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number[]&#125; nums1</span></span><br><span class="line"><span class="comment"> * @param &#123;number[]&#125; nums2</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> findMidValue = <span class="function"><span class="keyword">function</span>(<span class="params">nums1, nums2</span>) </span>&#123;    </span><br><span class="line">    <span class="keyword">var</span> m = nums1.length;</span><br><span class="line">    <span class="keyword">var</span> n = nums2.length;</span><br><span class="line">    <span class="keyword">if</span> (m &gt; n) &#123;</span><br><span class="line">        <span class="keyword">var</span> temp = nums1;</span><br><span class="line">        nums1 = nums2;</span><br><span class="line">        nums2 = temp;</span><br><span class="line">        <span class="keyword">var</span> tmp = m;</span><br><span class="line">        m = n;</span><br><span class="line">        n = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//console.log(nums1, nums2)</span></span><br><span class="line">    <span class="keyword">var</span> iMin = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> iMax = m;</span><br><span class="line">    <span class="keyword">var</span> halfLen = <span class="built_in">Math</span>.floor((m + n + <span class="number">1</span>) / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">while</span> (iMin &lt;= iMax) &#123;</span><br><span class="line">        <span class="keyword">var</span> i = <span class="built_in">Math</span>.floor((iMin + iMax) / <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">var</span> j = halfLen - i;</span><br><span class="line">        <span class="comment">//console.log(i, nums1[i])</span></span><br><span class="line">        <span class="keyword">if</span> (i &lt; iMax &amp;&amp; nums2[j - <span class="number">1</span>] &gt; nums1[i]) &#123;</span><br><span class="line">            iMin = i + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (i &gt; iMin &amp;&amp; nums1[i - <span class="number">1</span>] &gt; nums2[j]) &#123;</span><br><span class="line">            iMax = i - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">var</span> maxLeft = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span>) &#123;</span><br><span class="line">                maxLeft = nums2[j - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (j == <span class="number">0</span>) &#123;</span><br><span class="line">                maxLeft = nums1[i - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                maxLeft = <span class="built_in">Math</span>.max(nums1[i - <span class="number">1</span>], nums2[j - <span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> ((m + n) % <span class="number">2</span> == <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> maxLeft;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> minRight = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span> (i == m) &#123;</span><br><span class="line">                minRight = nums2[j];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (j == n) &#123;</span><br><span class="line">                minRight = nums1[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                minRight = <span class="built_in">Math</span>.min(nums2[j], nums1[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> (maxLeft + minRight) / <span class="number">2.0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0.0</span>;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/20/leetcode-4-寻找两个有序数组的中位数/" data-id="cjox56qba0001fsrjri3lqnjd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-一个游戏人，呵呵" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/11/18/一个游戏人，呵呵/" class="article-date">
@@ -416,97 +551,6 @@
 
 
   
-    <article id="post-e5-85-ac-e5-8f-b8-e6-96-b0-e7-9a-84-e4-b8-aa-e4-ba-ba-e5-88-9b-e6-96-b0-e5-9e-8b-e9-a1-b9-e7-9b-ae" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/21/e5-85-ac-e5-8f-b8-e6-96-b0-e7-9a-84-e4-b8-aa-e4-ba-ba-e5-88-9b-e6-96-b0-e5-9e-8b-e9-a1-b9-e7-9b-ae/" class="article-date">
-  <time datetime="2018-06-21T15:44:38.000Z" itemprop="datePublished">2018-06-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Uncategorized/">Uncategorized</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/21/e5-85-ac-e5-8f-b8-e6-96-b0-e7-9a-84-e4-b8-aa-e4-ba-ba-e5-88-9b-e6-96-b0-e5-9e-8b-e9-a1-b9-e7-9b-ae/">公司新的个人创新型项目</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​    最近，和老板沟通，计划把我的时间从琐碎的开发和维护中抽离出来，负责公司更加通用的技术构架和难点攻坚，有空闲的时间就负责一个比较新颖的h5小游戏项目。   </p>
-<p>​    新的项目打算采用帧同步的策略，强调战前和养成策略，强调随机性，弱化战中操作/策略。如果做出来成功上线应该是一个普通玩家喜欢的轻中度游戏。争取做的好玩，萌萌的，不氪金（这点我是不会公然强调的，毕竟国内游戏圈敢说不氪金别人就敢让你上不了线）   团队成员暂时只有我和一个还没开窍刚入行的年轻人，真苦逼，每次都是全带萌新。 近期没脑力刷题。当了三年cto，各种打杂，技术没啥成长，全是get挫折经验了。。。</p>
-<p>​    如果项目有进展，我也许会坚持更新。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/e5-85-ac-e5-8f-b8-e6-96-b0-e7-9a-84-e4-b8-aa-e4-ba-ba-e5-88-9b-e6-96-b0-e5-9e-8b-e9-a1-b9-e7-9b-ae/" data-id="cjokv5nnk000444rj9vwj7ps9" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-e9-ba-bb-e5-b0-86-e8-b5-b7-e6-89-8b13-e5-bc-a0-ef-bc-8c-e6-80-bb-e5-85-b1-e6-9c-89-e5-a4-9a-e5-b0-91-e7-a7-8d-e7-bb-84-e5-90-88-e5-8f-af-e8-83-bd-ef-bc-9f" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/21/e9-ba-bb-e5-b0-86-e8-b5-b7-e6-89-8b13-e5-bc-a0-ef-bc-8c-e6-80-bb-e5-85-b1-e6-9c-89-e5-a4-9a-e5-b0-91-e7-a7-8d-e7-bb-84-e5-90-88-e5-8f-af-e8-83-bd-ef-bc-9f/" class="article-date">
-  <time datetime="2018-06-20T16:21:51.000Z" itemprop="datePublished">2018-06-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/算法/">算法</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/21/e9-ba-bb-e5-b0-86-e8-b5-b7-e6-89-8b13-e5-bc-a0-ef-bc-8c-e6-80-bb-e5-85-b1-e6-9c-89-e5-a4-9a-e5-b0-91-e7-a7-8d-e7-bb-84-e5-90-88-e5-8f-af-e8-83-bd-ef-bc-9f/">麻将起手13张，总共有多少种组合可能？</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​    今天前同事在群里面问了这个面试题。组合排列好多年没用过，忘得差不多了。正好练习下。 </p>
-<p>​    先介绍“挡板法”：是往正整数之间塞东西，比如x+y+z=13，其中x,y,z都大于0。解就是 准备13个1，和两个隔板，插入到13个1中，共计有12个可插入位置。c(12,2)=66。第一个隔板之前是x,第一个隔板和第二个隔板之间是y，最后面是z。   麻将总共是（筒、饼、条）3_4_9=108张。 </p>
-<p>​    思路: 利用挡板法，x1+x2+x3+…+x27=13。其中0&lt;=xi&lt;=4.将每个xi都加1.则为求x1+x2+x3+…+x27=40。其中1=xi&lt;=5.的解 </p>
-<p>​    先忽略xi&lt;=5的限制，则全解为c(40-1,27-1)=c(39,26). 现在要减去xi&lt;=5限制的数量，其值为 </p>
-<p>1). 有一个xi&gt;5: 假设为x1&gt;5,则为(x1-5)+x2+x3+…+x27=40-5. 此时挡板法可得解为c(35-1,27-1), 因为x1…x27都有该解，所以组合数为c(27,1) * c(35-1,27-1). </p>
-<p>2). 有两个xi,xj&gt;5:假设为x1&gt;5,x2&gt;5,则为(x1-5)+(x2-5)+x3+…+x27=40-5-5. </p>
-<p>​    此时挡板法可得解为c(30-1,27-1), 因为x1…x27中任两个都有该解，所以组合数为c(27,2) <em> c(30-1,27-1). 因为每个1)的情况都包含有两个2)的解，所以要去重一个，即最终解为c(39,26) - (c(27,1) </em> c(35-1,27-1) - c(27,2) * c(30-1,27-1)) = 98521596000. 经同事群验证，该答案正确。   </p>
-<p>​    PS： 回想起来了之前和其他项目组讨论麻将的胡牌算法。是利用了解空间树的深度遍历算法来确定是否胡牌以及胡什么牌。有个同事提出来了所谓更加先进的想法，好像是基于深度遍历的优化的（根据子树直接得出部分结果来优化遍历）。详情不记得了。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/21/e9-ba-bb-e5-b0-86-e8-b5-b7-e6-89-8b13-e5-bc-a0-ef-bc-8c-e6-80-bb-e5-85-b1-e6-9c-89-e5-a4-9a-e5-b0-91-e7-a7-8d-e7-bb-84-e5-90-88-e5-8f-af-e8-83-bd-ef-bc-9f/" data-id="cjokv5nnz000g44rjijoomsem" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -531,7 +575,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/essay/">essay</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/h5刷题/">h5刷题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js刷题/">js刷题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/me-i-myself/">me.i.myself</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3d-engine/">3d engine</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/essay/">essay</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/h5刷题/">h5刷题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js刷题/">js刷题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/me-i-myself/">me.i.myself</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li></ul>
     </div>
   </div>
 
@@ -559,6 +603,14 @@
       <ul>
         
           <li>
+            <a href="/2018/11/25/egret3d开源项目初探/">egret3d开源项目初探</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/20/leetcode-4-寻找两个有序数组的中位数/">leetcode 84 寻找两个有序数组的中位数</a>
+          </li>
+        
+          <li>
             <a href="/2018/11/18/一个游戏人，呵呵/">一个游戏人，呵呵</a>
           </li>
         
@@ -568,14 +620,6 @@
         
           <li>
             <a href="/2018/11/16/你好-Hexo/">你好,Hexo</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/14/leetcode-84-e6-9f-b1-e7-8a-b6-e5-9b-be-e4-b8-ad-e6-9c-80-e5-a4-a7-e7-9a-84-e7-9f-a9-e5-bd-a2/">leetcode 84 柱状图中最大的矩形</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/06/e5-a5-bd-e4-b9-85-e6-b2-a1-e5-86-99-e4-ba-86-ef-bc-8c-e7-bb-a7-e7-bb-ad-e5-8a-a0-e6-b2-b9/">好久没写了，继续加油</a>
           </li>
         
       </ul>

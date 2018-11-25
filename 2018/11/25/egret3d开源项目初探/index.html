@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>egret3d开源项目初探 | teof的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="背景知识：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;以前写过格斗猎人的2D战斗逻辑引擎，算是极其简单的2D逻辑了，真实逻辑大概也就几百上千行。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;而这个3D引擎目前才开发到1.3版本，很多功能还没有实现，就有2、3w行代码了。3D引擎复杂程度果然是最难">
+<meta name="keywords" content="erlang,html5,开发者,程序猿,编程,代码,开源">
+<meta property="og:type" content="article">
+<meta property="og:title" content="egret3d开源项目初探">
+<meta property="og:url" content="http://yoursite.com/2018/11/25/egret3d开源项目初探/index.html">
+<meta property="og:site_name" content="teof的博客">
+<meta property="og:description" content="背景知识：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;以前写过格斗猎人的2D战斗逻辑引擎，算是极其简单的2D逻辑了，真实逻辑大概也就几百上千行。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;而这个3D引擎目前才开发到1.3版本，很多功能还没有实现，就有2、3w行代码了。3D引擎复杂程度果然是最难">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/11/25/egret3d开源项目初探/image/egret3d文件夹结构.png">
+<meta property="og:updated_time" content="2018-11-25T17:35:54.826Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="egret3d开源项目初探">
+<meta name="twitter:description" content="背景知识：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;以前写过格斗猎人的2D战斗逻辑引擎，算是极其简单的2D逻辑了，真实逻辑大概也就几百上千行。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;而这个3D引擎目前才开发到1.3版本，很多功能还没有实现，就有2、3w行代码了。3D引擎复杂程度果然是最难">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/25/egret3d开源项目初探/image/egret3d文件夹结构.png">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">teof的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不想继续废柴</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-egret3d开源项目初探" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/25/egret3d开源项目初探/" class="article-date">
+  <time datetime="2018-11-25T15:39:05.000Z" itemprop="datePublished">2018-11-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/3d-engine/">3d engine</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      egret3d开源项目初探
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="背景知识："><a href="#背景知识：" class="headerlink" title="背景知识："></a>背景知识：</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;以前写过格斗猎人的2D战斗逻辑引擎，算是极其简单的2D逻辑了，真实逻辑大概也就几百上千行。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;而这个3D引擎目前才开发到1.3版本，很多功能还没有实现，就有2、3w行代码了。3D引擎复杂程度果然是最难等级的，更别提后续可能的各种图形学新技术新优化，都加上以后感觉这个项目奔着10w行js代码去了。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;看了一段时间，结合之前对于渲染的简单了解，有点心得，记录一下。未来的道路还很漫长，继续加油。</p>
+<h4 id="egret3d引擎周边："><a href="#egret3d引擎周边：" class="headerlink" title="egret3d引擎周边："></a>egret3d引擎周边：</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;egret3d引擎可以理解为两个大的部分，一部分是浏览器提供的webgl api调用opengl的渲染部分；另外一部分则是这个开源库所实现的3d引擎逻辑功能部分，这部分egret引擎组将其设计为两块，分别包装在egret3d和paper两个命名空间中。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;【<strong>egret3d 命名空间</strong>用于处理三维游戏相关内容，包含模型、纹理、材质、灯光、碰撞等常用功能。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>paper 命名空间</strong>用于实现与具体游戏引擎（无论是2D 或 3D）无关的组件实体系统框架，用于维护对象的生命周期以及开发模型。】</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;宏观来看设计非常清晰，和整个现有的egret框架是一个逐渐融合的关系。非常支持这种商业化技术理念，既独立开来以保障快速开发，又在宏观层面和现有系统建立联系。接下去就是项目组的一个快速迭代的实践过程。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;egret采用了Typescript语言作为主语言。ts是微软所写，看着就像是C#进化版，呵呵。关于ts语言的设计初衷，我非常理解，动态脚本语言（js）设计大型项目的缺点很多，必须要用好的外围工具来约束它，统筹规划它。这样才能在不断地开发维护中保证项目的可控性、可维护性。比如我们公司全lua的unity3d项目，我就明确要求了一点，当你使用lua的目的不再只是修bug，热更新，而是作为整个项目的主要语言时，它的灵活可能就是缺点，需要用明确的规则/工具管控起来。</p>
+<h4 id="egret3d引擎初探："><a href="#egret3d引擎初探：" class="headerlink" title="egret3d引擎初探："></a>egret3d引擎初探：</h4><h5 id="入口和运行时："><a href="#入口和运行时：" class="headerlink" title="入口和运行时："></a>入口和运行时：</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index.html中调用egret3d.runEgret，进入RunEgret.ts模块的runEgret方法。引擎启动了。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在整个运行时，主要是ECS：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Entity 实体</strong>：BaseObject，GameObject、Asset、Scene、BaseComponent等</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Component 组件</strong>：BaseComponent，一个组件实现一方面的功能，包含数据</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>System 系统</strong>：BaseSystem，一个生命周期系统处理该生命周期的所有脚本和组件的数据，其他功能系统类</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此ECS非Unity2018中提到的能大幅优化并发性能、增加Cache命中的ECS（反正js都是单线程 <a href="https://segmentfault.com/a/1190000012925872" target="_blank" rel="noopener">h5开发必看</a>）。但是概念上比较接近。通过各个单例管理类维护状态数据，各个组件“组成”功能，各个系统进行各方面功能的调度。完成了3d引擎的几乎所有功能部分。</p>
+<h5 id="egret3d项目结构分析："><a href="#egret3d项目结构分析：" class="headerlink" title="egret3d项目结构分析："></a>egret3d项目结构分析：</h5><p>图片看不了的点击链接：<a href="https://imgchr.com/i/FA9TLq" target="_blank" rel="noopener">egret3d文件夹结构</a></p>
+<p><img src="image/egret3d文件夹结构.png" alt="egret3d文件夹结构"></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;asset:资源定义，如Mesh、Material、Texture、Shader、GLTF。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;components：各个实际的功能，animation、audio、camera、collision、Egret2DRenderer、light、MeshFilter、MeshRenderer、particles、singletons、SkinnedMeshRenderer、Transform。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;esc：如上述分析。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;editor:编辑器功能，和以前看过U3d实现编辑器的设计类似，实现undo、redo、serialize、deserialize这几个主要接口。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;math：实现了3D引擎的各种数学库，以后碰到类似的疑惑可以回来参考。</p>
+<p>PS：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GameObject的全局单例组件管理值得借鉴，采取的单例基类的应用方式下次自己试试。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;常见的处理流程：单例组件类Component先收集待处理实体，最后再由对应的System统一处理。</p>
+<p>egret3d引擎的脚本组件及生命周期顺序如下：</p>
+<p>​     * 脚本组件。</p>
+<p>​     * 生命周期的顺序。</p>
+<p>​     * - onAwake();    //组件被初始化时调用。在整个生命周期中只执行一次。</p>
+<p>​     * - onReset();</p>
+<p>​     * - onEnable();    //组件被激活或实体被激活时调用。</p>
+<p>​     * - onStart();    //组件开始运行时调用。在整个生命周期中只执行一次。</p>
+<p>​     * - onFixedUpdate();</p>
+<p>​     * - onUpdate();    //程序每帧调用。</p>
+<p>​     * - onLateUpdate();    //程序每帧调用。</p>
+<p>​     * - onDisable();    //组件被禁用或实体被禁用时调用。</p>
+<p>​     * - onDestroy();</p>
+<h5 id="个别名词解释："><a href="#个别名词解释：" class="headerlink" title="个别名词解释："></a>个别名词解释：</h5><p>WebGL：通过浏览器提供的接口，直接和底层的OpenGL库打交道。</p>
+<p>GLTF：3D图形界的JPEG，2015年10月发布，面向实时渲染应用的，尽量提供可以直接传输给图形API的数据形式，不再需要二次转换。</p>
+<p>WebAssembly：是一种新的适合于编译到Web的，可移植的，大小和加载时间高效的格式，是一种新的字节码格式。可用它将大型的C和C++代码库比如游戏、物理引擎甚至是桌面应用程序导入Web平台。<a href="https://bellard.org/jslinux/vm.html?url=https://bellard.org/jslinux/win2k.cfg&amp;mem=192&amp;graphic=1&amp;w=1024&amp;h=768" target="_blank" rel="noopener">windows 2000通过WebAssembly编译</a></p>
+<h5 id="展望与总结："><a href="#展望与总结：" class="headerlink" title="展望与总结："></a>展望与总结：</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;多嘴一句，egret引擎组主体全是基于Typescript语言开发，c层面的东西很少，这样的隐患就是完全把性能交给了js语言。万幸最近这些年webgl、gltf、webassembly等等提高性能的技术不断出现。个人认为接下去egret的性能命脉就彻底交到了webassembly手中，这个技术到底能发展成啥样，工业化到什么程度呢，拭目以待。egret、cocos、laya到底谁会胜出？还是以后可能入场的底蕴深厚的腾讯、网易呢？我不知道答案啊，但是有鹅选鹅，有猪选猪，总不会错。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;对3d引擎的构成有了个简单的了解，对以前计算机图形学课程的理解又深刻了不少，呵呵，以后继续参考其他开源3d引擎的实现。多理解其他大牛已有的实践工作，尽快应用于实际项目中。多看多学多练。另外对于初学者，强烈推荐《Unity Shader入门精要》。</p>
+<h4 id="随想（胡言乱语，可略）："><a href="#随想（胡言乱语，可略）：" class="headerlink" title="随想（胡言乱语，可略）："></a>随想（胡言乱语，可略）：</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果是我来主导h5的3d引擎开发，我会怎么快速开发出这几万行代码呢？</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0、支持webgl的浏览器以便实测，熟悉webgl的api接口，阅读理解《游戏引擎架构》、《Unity Shader入门精要》，参考市面上成熟的开源3d引擎项目。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1、尽快写出最初版的3d最小原型，自测通过。最小原型实现以下功能：基本数学库、网格、材质、贴图、默认Shader。读取3d数据，调用webgl，可在浏览器上展示3d效果。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、在最小原型的基础上开始确定架构图，各个模块之间的关联。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3、并行开发完善各个模块，各自自测，引入测试，测试所用的3D数据可以先通过其他工具生成。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4、最后处理各种额外功能、3D编辑器、性能优化等。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/25/egret3d开源项目初探/" data-id="cjox56qb20000fsrjktdo5qg0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/11/20/leetcode-4-寻找两个有序数组的中位数/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">leetcode 84 寻找两个有序数组的中位数</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+    <h3 class="widget-title">个人信息</h3>
+    <div class="widget">
+      <li>历任双端核心开发、主程、创业公司技术合伙人。擅长Erlang。使用Unity3d，Egret。</li>
+      <li><a href="https://www.zhihu.com/people/sun-jie-20-20/asks" title="Zhihu">我的知乎</a></li>
+      <li><a href="https://teof.github.io/2018/11/17/本博主旨/" title="self">本博主旨</a></li>
+    </div>
+  </div>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/3d-engine/">3d engine</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Uncategorized/">Uncategorized</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/essay/">essay</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/h5刷题/">h5刷题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js刷题/">js刷题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/me-i-myself/">me.i.myself</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/25/egret3d开源项目初探/">egret3d开源项目初探</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/20/leetcode-4-寻找两个有序数组的中位数/">leetcode 84 寻找两个有序数组的中位数</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/18/一个游戏人，呵呵/">一个游戏人，呵呵</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/17/本博主旨/">本博主旨</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/16/你好-Hexo/">你好,Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 teof<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
