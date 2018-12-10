@@ -5,20 +5,22 @@
   
 
   
-  <title>好久没写了，继续加油 | teof的博客</title>
+  <title>egret3d单例模式new | teof的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="​    这一段时间没写，和偷懒的关系不大，主要是工作和生活上各种繁忙。前一段负债良多，不得不在周末接了两天的私活，盈利3k+。呵呵，很轻松，如果上班赚钱也这么轻松就美滋滋了。 ​    最近在公司主要负责三个方向。 ​    首先是新的主打项目的后端难点开发，其实也没啥难点，呵呵。另外就是因为合作的新同事对于规范和接口很是严谨，不得不一直完善细节方便调用。  ​    第二个就是前端人手不足，让">
+  <meta name="description" content="这次更新有点慢，主要是图床的问题老是解决不好，另外一直在确定未来的工作地点，尴尬。【图床使用七牛云已解决：）】 单例上次提到了egret的单例模式，今天带来一种新的写法，能够让单例模式实现的更简单，避免在各个类重复写。 12345678910111213function getSingleton&amp;lt;T&amp;gt;(a: new(...args) =&amp;gt; T, ...args) &amp;#123;">
 <meta name="keywords" content="erlang,html5,开发者,程序猿,编程,代码,开源">
 <meta property="og:type" content="article">
-<meta property="og:title" content="好久没写了，继续加油">
-<meta property="og:url" content="http://yoursite.com/2018/11/06/e5-a5-bd-e4-b9-85-e6-b2-a1-e5-86-99-e4-ba-86-ef-bc-8c-e7-bb-a7-e7-bb-ad-e5-8a-a0-e6-b2-b9/index.html">
+<meta property="og:title" content="egret3d单例模式new">
+<meta property="og:url" content="http://yoursite.com/2018/12/09/egret单例模式new/index.html">
 <meta property="og:site_name" content="teof的博客">
-<meta property="og:description" content="​    这一段时间没写，和偷懒的关系不大，主要是工作和生活上各种繁忙。前一段负债良多，不得不在周末接了两天的私活，盈利3k+。呵呵，很轻松，如果上班赚钱也这么轻松就美滋滋了。 ​    最近在公司主要负责三个方向。 ​    首先是新的主打项目的后端难点开发，其实也没啥难点，呵呵。另外就是因为合作的新同事对于规范和接口很是严谨，不得不一直完善细节方便调用。  ​    第二个就是前端人手不足，让">
+<meta property="og:description" content="这次更新有点慢，主要是图床的问题老是解决不好，另外一直在确定未来的工作地点，尴尬。【图床使用七牛云已解决：）】 单例上次提到了egret的单例模式，今天带来一种新的写法，能够让单例模式实现的更简单，避免在各个类重复写。 12345678910111213function getSingleton&amp;lt;T&amp;gt;(a: new(...args) =&amp;gt; T, ...args) &amp;#123;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-17T03:44:14.572Z">
+<meta property="og:image" content="http://pjj0hr4vq.bkt.clouddn.com/egret-%E6%88%98%E6%96%97%E7%BC%96%E8%BE%91%E5%99%A8.png">
+<meta property="og:updated_time" content="2018-12-10T15:12:20.698Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="好久没写了，继续加油">
-<meta name="twitter:description" content="​    这一段时间没写，和偷懒的关系不大，主要是工作和生活上各种繁忙。前一段负债良多，不得不在周末接了两天的私活，盈利3k+。呵呵，很轻松，如果上班赚钱也这么轻松就美滋滋了。 ​    最近在公司主要负责三个方向。 ​    首先是新的主打项目的后端难点开发，其实也没啥难点，呵呵。另外就是因为合作的新同事对于规范和接口很是严谨，不得不一直完善细节方便调用。  ​    第二个就是前端人手不足，让">
+<meta name="twitter:title" content="egret3d单例模式new">
+<meta name="twitter:description" content="这次更新有点慢，主要是图床的问题老是解决不好，另外一直在确定未来的工作地点，尴尬。【图床使用七牛云已解决：）】 单例上次提到了egret的单例模式，今天带来一种新的写法，能够让单例模式实现的更简单，避免在各个类重复写。 12345678910111213function getSingleton&amp;lt;T&amp;gt;(a: new(...args) =&amp;gt; T, ...args) &amp;#123;">
+<meta name="twitter:image" content="http://pjj0hr4vq.bkt.clouddn.com/egret-%E6%88%98%E6%96%97%E7%BC%96%E8%BE%91%E5%99%A8.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -65,14 +67,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-e5-a5-bd-e4-b9-85-e6-b2-a1-e5-86-99-e4-ba-86-ef-bc-8c-e7-bb-a7-e7-bb-ad-e5-8a-a0-e6-b2-b9" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <section id="main"><article id="post-egret单例模式new" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/11/06/e5-a5-bd-e4-b9-85-e6-b2-a1-e5-86-99-e4-ba-86-ef-bc-8c-e7-bb-a7-e7-bb-ad-e5-8a-a0-e6-b2-b9/" class="article-date">
-  <time datetime="2018-11-06T15:17:08.000Z" itemprop="datePublished">2018-11-06</time>
+    <a href="/2018/12/09/egret单例模式new/" class="article-date">
+  <time datetime="2018-12-09T05:32:01.000Z" itemprop="datePublished">2018-12-09</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Uncategorized/">Uncategorized</a>
+    <a class="article-category-link" href="/categories/3d-engine/">3d engine</a>
   </div>
 
   </div>
@@ -83,7 +85,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      好久没写了，继续加油
+      egret3d单例模式new
     </h1>
   
 
@@ -91,17 +93,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>​    这一段时间没写，和偷懒的关系不大，主要是工作和生活上各种繁忙。前一段负债良多，不得不在周末接了两天的私活，盈利3k+。呵呵，很轻松，如果上班赚钱也这么轻松就美滋滋了。</p>
-<p>​    最近在公司主要负责三个方向。</p>
-<p>​    首先是新的主打项目的后端难点开发，其实也没啥难点，呵呵。另外就是因为合作的新同事对于规范和接口很是严谨，不得不一直完善细节方便调用。 </p>
-<p>​    第二个就是前端人手不足，让我去帮忙开发unity3d的系统，基于之前的经验，帮他们弄了几个新点子。策划拼UI；Lua struct；前端自测协议（这个最有趣，前端推后端，后端推前端，呵呵），但是我的目的达到了，现在是个人都能帮后端测协议测功能。 </p>
-<p>​    第三个就是Egret，之前靠谱同事离职去深圳了，我凑合着接。typescript这个语言还挺有趣的，设计者既想奔着C#、Lua等各种现代先进语言的高大上走，又不得不背着js的重重的壳。希望后续自己能有更多时间写这方面的博客。细节是不可能分析的了，捡些重要的写写吧。</p>
-<p>​    下一阶段要做好几个团队内技术分享，因为没时间好好准备，只能大概说个意思满足下他们了。</p>
+        <p>这次更新有点慢，主要是图床的问题老是解决不好，另外一直在确定未来的工作地点，尴尬。【图床使用七牛云已解决：）】</p>
+<h3 id="单例"><a href="#单例" class="headerlink" title="单例"></a>单例</h3><p>上次提到了egret的单例模式，今天带来一种新的写法，能够让单例模式实现的更简单，避免在各个类重复写。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getSingleton</span>&lt;<span class="title">T</span>&gt;(<span class="params">a: <span class="keyword">new</span>(...args) =&gt; T, ...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a.prototype.__Singleton__)</span><br><span class="line">        <span class="keyword">return</span> a.prototype.__Singleton__;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        a.prototype.__Singleton__ = <span class="keyword">new</span> a(...args);</span><br><span class="line">        <span class="keyword">return</span> a.prototype.__Singleton__;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//示例，注意约束其他地方不可私自构造该类。因为这种写法无法私有化构造函数。</span></span><br><span class="line"><span class="keyword">class</span> B&#123;&#125;</span><br><span class="line"><span class="keyword">let</span> b:B = getSingleton(B);</span><br></pre></td></tr></table></figure>
+<h3 id="战斗编辑器"><a href="#战斗编辑器" class="headerlink" title="战斗编辑器"></a>战斗编辑器</h3><p>要离开创业已三年的逐游，颇多不舍。临走前还接了个任务，没人知道做战斗编辑器，于是锅又落在我头上。花了一天，完成了一个用egret实现的回合制战斗编辑器雏形。</p>
+<p><img src="http://pjj0hr4vq.bkt.clouddn.com/egret-%E6%88%98%E6%96%97%E7%BC%96%E8%BE%91%E5%99%A8.png" alt="egret-战斗编辑器"></p>
+<h3 id="新的旅途"><a href="#新的旅途" class="headerlink" title="新的旅途"></a>新的旅途</h3><p>这次确定了自己未来的职业发展方向，h5前端。希望自己能在前端项目管理、图形学渲染方面有所建树。接下去的一年将在广州4399技术研究中心度过。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/06/e5-a5-bd-e4-b9-85-e6-b2-a1-e5-86-99-e4-ba-86-ef-bc-8c-e7-bb-a7-e7-bb-ad-e5-8a-a0-e6-b2-b9/" data-id="cjokv5nnk000744rjffr9jd9u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/09/egret单例模式new/" data-id="cjpigf1jm0000kkrjce05v33u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -110,19 +112,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/11/14/leetcode-84-e6-9f-b1-e7-8a-b6-e5-9b-be-e4-b8-ad-e6-9c-80-e5-a4-a7-e7-9a-84-e7-9f-a9-e5-bd-a2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          leetcode 84 柱状图中最大的矩形
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/07/07/e5-b8-86-e5-8f-94-e7-89-9b-e9-80-bc/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/11/25/egret3d开源项目初探/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">帆叔牛逼</div>
+      <div class="article-nav-title">egret3d开源项目初探</div>
     </a>
   
 </nav>
